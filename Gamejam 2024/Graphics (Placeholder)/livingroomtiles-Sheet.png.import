@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnpu661mcr4ps"
-path="res://.godot/imported/livingroomtiles-Sheet.png-db5a7bec762accae3638cef29c5ca862.ctex"
+path="res://.godot/imported/livingroomtiles-Sheet.png-f52360e79817f9bc735f8d92e45bcf0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/livingroomtiles-Sheet.png"
-dest_files=["res://.godot/imported/livingroomtiles-Sheet.png-db5a7bec762accae3638cef29c5ca862.ctex"]
+source_file="res://Graphics (Placeholder)/livingroomtiles-Sheet.png"
+dest_files=["res://.godot/imported/livingroomtiles-Sheet.png-f52360e79817f9bc735f8d92e45bcf0e.ctex"]
 
 [params]
 

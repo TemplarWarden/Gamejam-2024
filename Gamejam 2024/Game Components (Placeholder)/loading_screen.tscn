@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcxwld1axpvc3"]
 
-[ext_resource type="Script" path="res://Game Components/loading_screen.gd" id="1_jv47d"]
+[ext_resource type="Script" path="res://Game Components (Placeholder)/loading_screen.gd" id="1_jv47d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgt6y"]
 

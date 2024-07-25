@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
-[ext_resource type="Texture2D" uid="uid://1yh55pgy1b16" path="res://Graphics/living_roomfloorlayerroomwithoutborder2.png" id="4_s4ky4"]
+[ext_resource type="Texture2D" uid="uid://1yh55pgy1b16" path="res://Graphics (Placeholder)/living_roomfloorlayerroomwithoutborder2.png" id="4_s4ky4"]
 [ext_resource type="PackedScene" uid="uid://c87aeu27u0gwt" path="res://assets/door/door.tscn" id="4_wcvlh"]
 [ext_resource type="PackedScene" uid="uid://ej8bk0gk6y1k" path="res://EXAMPLES/Example NPC/example_npc.tscn" id="5_1s8xs"]
 [ext_resource type="PackedScene" uid="uid://dxaypel6dw601" path="res://assets/components/walls.tscn" id="5_wpasl"]

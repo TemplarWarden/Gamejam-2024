@@ -1,6 +1,7 @@
 ~ start
 
 #Dcumetntation can be found https://github.com/nathanhoad/godot_dialogue_manager
+#You should be able to use [i]Markup[/i] to modify how text appears for one off situations
 
 Player: [#side=left] This is some dialogue.
 Orange: [#side=right] Here are some choices.

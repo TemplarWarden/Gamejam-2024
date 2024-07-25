@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8hog8xcmrsqs"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_jh1uy"]
-[ext_resource type="Texture2D" uid="uid://c2q58sv1ue8dx" path="res://Graphics/DetectiveCropped.png" id="2_ug8e6"]
+[ext_resource type="Texture2D" uid="uid://c2q58sv1ue8dx" path="res://Graphics (Placeholder)/DetectiveCropped.png" id="2_ug8e6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4v3ik"]
 radius = 50.0

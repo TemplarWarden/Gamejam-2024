@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbfhci5it8fu8"
-path="res://.godot/imported/yellowchef1.png-f3652610e72a34ec1f533872b6b19709.ctex"
+path="res://.godot/imported/yellowchef1.png-58e1b4c7fbc98452dd32eebaeb237421.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/yellowchef1.png"
-dest_files=["res://.godot/imported/yellowchef1.png-f3652610e72a34ec1f533872b6b19709.ctex"]
+source_file="res://Graphics (Placeholder)/yellowchef1.png"
+dest_files=["res://.godot/imported/yellowchef1.png-58e1b4c7fbc98452dd32eebaeb237421.ctex"]
 
 [params]
 

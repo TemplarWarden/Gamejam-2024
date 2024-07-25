@@ -7,7 +7,7 @@ extends CanvasLayer
 @export var skip_action: StringName = &"ui_cancel"
 
 @onready var balloon: Control = %Balloon
-@onready var character_label: RichTextLabel = %CharacterLabel
+#@onready var character_label: RichTextLabel = %CharacterLabel
 
 
 @onready var container_left: Control= %DialogueLeft
@@ -22,6 +22,8 @@ extends CanvasLayer
 
 #active dialogue_label
 @onready var dialogue_label: DialogueLabel = dialogue_label_left
+@onready var portrait: TextureRect = portrait_left
+@onready var containter: Control = container_left
 
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
@@ -60,9 +62,9 @@ var dialogue_line: DialogueLine:
 
 		#determine character/dialogue talking
 		dialogue_label = pick_label(dialogue_line)
-		
-		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = tr(dialogue_line.character, "dialogue")
+
+		#character_label.visible = not dialogue_line.character.is_empty()
+		#character_label.text = tr(dialogue_line.character, "dialogue")
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
@@ -187,33 +189,52 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 #pick label to be active and hide/transparent other label/portrait
 func pick_label(line: DialogueLine) -> DialogueLabel:
+	layer_visibiity(container_left)
+	layer_visibiity(container_right)
+	layer_visibiity(portrait_left, true, 0.5)
+	layer_visibiity(portrait_right,true,0.5)
+	
 	var new_label = dialogue_label
+	var new_portrait = portrait
+	var new_container = containter
+	var audio
 	var tag = line.get_tag_value("side")
 	if tag == "left" or  tag == "Left":
 			new_label = dialogue_label_left
-			layer_visibiity(container_left, true, 1)
-			layer_visibiity(portrait_left, true, 1)
-			layer_visibiity(container_right)
-			layer_visibiity(portrait_right,true,0.5)
+			new_portrait = portrait_left
+			new_container = container_left
+			audio = left_audio
 	if tag == "right" or tag == "Right":
 			new_label = dialogue_label_right
-			layer_visibiity(container_right, true, 1)
-			layer_visibiity(portrait_right, true, 1)
-			layer_visibiity(container_left)
-			layer_visibiity(portrait_left,true,0.5)
-	layer_visibiity(new_label, true, 1)
+			new_portrait = portrait_right
+			new_container = container_right
+			audio = right_audio
+	
+	#set balloon features according to characer name from resource 
+	set_label_details(new_label, new_portrait, audio, line.character)
+	
+	layer_visibiity(new_portrait, true, 1)
+	layer_visibiity(new_container, true, 1)
+	
 	return new_label	
 
 func layer_visibiity(control: Control, state: bool = false, value: float = 0) -> void:
 	control.set_visible(state)
 	control.modulate.a = value
 
+func read_character_resource(character: String) -> Dictionary:
+	CharacterTextResourceManager.fetch(character)
+	return CharacterTextResourceManager.fetch(character)
+	
+func set_label_details(label: DialogueLabel, portrait: TextureRect, audio: AudioStreamPlayer2D, character: String) -> void:
+	var details: Dictionary = read_character_resource(character)
+	portrait.texture = load(details[CharacterTextResourceManager.DICVALUES.PORTRAIT])
+	
 
 func _on_dialogue_label_left_spoke(letter, letter_index, speed):
 	if letter in [".", " "]:
 		left_audio.pitch_scale = randf_range(0.9, 1.1)
 		left_audio.play()
-
 
 func _on_dialogue_label_right_spoke(letter, letter_index, speed):
 	if letter in [".", " "]:
