@@ -32,8 +32,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-
+	owned_clickable.node_owner = self
+	owned_interactable.node_owner = self
 	
 	owned_clickable.connect("_on_recieve_interact", recieve_click)
 	owned_clickable.connect("_on_recieve_hover", recieve_hover)

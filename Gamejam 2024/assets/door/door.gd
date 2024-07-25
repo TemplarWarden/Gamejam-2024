@@ -5,7 +5,6 @@ class_name Door
 @export var owned_clickable: Clickable:
 	set(object):
 		owned_clickable = object
-		owned_clickable.node_owner = self
 		update_configuration_warnings()
 	get:
 		return owned_clickable
@@ -13,7 +12,7 @@ class_name Door
 @export var owned_interactable: Interactable:
 	set(object):
 		owned_interactable = object
-		owned_interactable.node_owner = self
+		
 		update_configuration_warnings()
 	get:
 		return owned_interactable
@@ -60,6 +59,8 @@ func pair_door(door:Door):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	owned_clickable.node_owner = self
+	owned_interactable.node_owner = self
 	#attempt to pair this door with another door, will only be necessary if door is accidentally unpaired
 	pair_door(target_door)
 	listen_child_object()
