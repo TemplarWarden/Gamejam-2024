@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcxwld1axpvc3"]
+
+[ext_resource type="Script" path="res://Game Components/loading_screen.gd" id="1_jv47d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgt6y"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 5
+follow_viewport_enabled = true
+script = ExtResource("1_jv47d")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgt6y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOADING SCREEN"

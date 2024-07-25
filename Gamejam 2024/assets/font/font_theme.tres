@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cw1l2t36qm1h4"]
+
+[ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="1_aiury"]
+
+[resource]
+default_font = ExtResource("1_aiury")
+/font_sizes/TextSize = 16
+/fonts/Alkhemikal = ExtResource("1_aiury")

@@ -1,0 +1,22 @@
+~ start
+
+#Dcumetntation can be found https://github.com/nathanhoad/godot_dialogue_manager
+
+Player: [#side=left] This is some dialogue.
+Orange: [#side=right] Here are some choices.
+- Left side
+	Nathan: [#side=left] You picked the first one. 
+	do [GameManager.set_flag("left picks", GameManager.get_flag("left picks") + 1)]
+	Nathan: you picked the left one {{GameManager.get_flag("left picks")}} times. 
+- Right side
+	Nathan: [#side=right] You picked the second one.
+	if GameManager.get_flag("right pick") == 0
+		Nathan: You have not picked this before 
+		do [GameManager.set_flag("right pick", 1)]
+	elif GameManager.get_flag("right pick") == 1
+		Nathan: you have picked this before
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END

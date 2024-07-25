@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvba13i1iprg1"]
+
+[ext_resource type="PackedScene" uid="uid://dkxicyaoc2eha" path="res://game_manager.tscn" id="1_0s30p"]
+
+[node name="Program Manager" type="Node"]
+
+[node name="Game Manager" parent="." instance=ExtResource("1_0s30p")]

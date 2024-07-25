@@ -1,0 +1,1 @@
+DIALOGUE MANAGER REFERENCE https://github.com/nathanhoad/godot_dialogue_manager
