@@ -12,7 +12,6 @@ class_name Door
 @export var owned_interactable: Interactable:
 	set(object):
 		owned_interactable = object
-		
 		update_configuration_warnings()
 	get:
 		return owned_interactable
@@ -32,7 +31,8 @@ class_name Door
 	get:
 		return reciever_node
 		
-@export var my_camera: Camera2D
+@export var my_room: RoomHandler
+@export var door_sound: AudioStreamPlayer2D
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warningArray = []
@@ -46,8 +46,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warningArray.append("target door does not have a reciever node")
 	if reciever_node == null:
 		warningArray.append("Does not have a reciever node, where player will arrive")
-	if my_camera == null:
-		warningArray.append("Does not have a target camera to make active")
+	if my_room == null:
+		warningArray.append("Does not have a room to make active")
 	return warningArray
 
 func pair_door(door:Door):
@@ -73,8 +73,11 @@ func use_door(_object):
 	trigger_transition()
 
 func trigger_transition():
-	GameManager.player_reference.position = target_door.reciever_node.global_position
-	target_door.my_camera.make_current()
+	var target = target_door.reciever_node.global_position
+	if is_instance_valid(door_sound): door_sound.play()
+	target_door.my_room.enter_room()
+	GameManager.player_reference.position = target
+	
 
 func recieve_click(object: Clickable) -> void:
 	signal_player_target(object)

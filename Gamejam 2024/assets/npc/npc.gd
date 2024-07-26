@@ -5,7 +5,7 @@ class_name NPC
 @export var owned_clickable: Clickable:
 	set(object):
 		owned_clickable = object
-		owned_clickable.node_owner = self
+		#owned_clickable.node_owner = self
 		update_configuration_warnings()
 	get:
 		return owned_clickable
@@ -13,7 +13,7 @@ class_name NPC
 @export var owned_interactable: Interactable:
 	set(object):
 		owned_interactable = object
-		owned_interactable.node_owner = self
+		#owned_interactable.node_owner = self
 		update_configuration_warnings()
 	get:
 		return owned_interactable
@@ -49,10 +49,10 @@ func talk_to():
 func recieve_click(object: Clickable) -> void:
 	signal_player_target(object)
 	
-func recieve_interact(object) -> void:
+func recieve_interact(_object) -> void:
 	talk_to()
 	
-func recieve_hover(_object, args) -> void:
+func recieve_hover(_object, _args) -> void:
 	pass
 	
 func signal_player_target(object: Clickable) -> void:

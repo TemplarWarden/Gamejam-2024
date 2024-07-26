@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cqcku6bfwuo5p"]
+
+[ext_resource type="Texture2D" uid="uid://bnpu661mcr4ps" path="res://Graphics (Placeholder)/livingroomtiles-Sheet.png" id="1_3vqbd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eatcw"]
+atlas = ExtResource("1_3vqbd")
+region = Rect2(0, 128, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eatcw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]

@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 LoadManager="res://autoloads/load_manager.gd"
 GameManager="*res://autoloads/game_manager.gd"
-AudioManager="*res://autoloads/audio_manager.gd"
 CharacterTextResourceManager="*res://autoloads/character_text_resource_manager.gd"
+AudioManager="*res://autoloads/AudioManager.tscn"
 
 [dialogue_manager]
 

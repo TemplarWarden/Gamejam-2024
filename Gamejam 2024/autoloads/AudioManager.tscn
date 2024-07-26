@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy230n4beh6d0"]
+
+[ext_resource type="AudioStream" uid="uid://ynltavb8w7b1" path="res://audio/music/overworld.wav" id="1_6ja4q"]
+[ext_resource type="Script" path="res://autoloads/audio_manager.gd" id="2_hq3kw"]
+
+[node name="AudioManager" type="AudioStreamPlayer"]
+stream = ExtResource("1_6ja4q")
+autoplay = true
+bus = &"Background Music"
+script = ExtResource("2_hq3kw")
+
+[node name="GlobalSFX" type="AudioStreamPlayer" parent="."]

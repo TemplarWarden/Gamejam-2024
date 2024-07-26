@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://ej8bk0gk6y1k"]
+[gd_scene load_steps=11 format=3 uid="uid://ej8bk0gk6y1k"]
 
 [ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_hnc0t"]
-[ext_resource type="Texture2D" uid="uid://bs2bb1xj876i6" path="res://EXAMPLES/Example NPC/examplenpcportrait.png" id="2_ptuan"]
 [ext_resource type="Resource" uid="uid://dxhvhpowqwvqh" path="res://EXAMPLES/Example NPC/test.dialogue" id="3_nglee"]
 [ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="4_ljlo3"]
 [ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="5_h2ky1"]
@@ -26,8 +25,6 @@ font_size = 50
 [node name="NPC" parent="." node_paths=PackedStringArray("owned_clickable", "owned_interactable") instance=ExtResource("1_hnc0t")]
 owned_clickable = NodePath("clickable")
 owned_interactable = NodePath("interactable")
-identifier = "test"
-npcportrait = ExtResource("2_ptuan")
 npcdialogue = ExtResource("3_nglee")
 
 [node name="clickable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("4_ljlo3")]
