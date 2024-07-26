@@ -15,12 +15,19 @@ var default_dict: Dictionary = {
 		DICVALUES.PORTRAIT: "res://Graphics (Placeholder)/yellowchef1.png",
 		DICVALUES.TEXTCOLOR: Color.WHITE,
 		DICVALUES.TYPESOUND: "res://audio/chef_dialogue.wav",
-		DICVALUES.TYPESPEED: 0.01,
+		DICVALUES.TYPESPEED: 0.05,
 }
 
 var character_array: Array = [
 
-	default_dict
+	default_dict,
+	 {
+		DICVALUES.ID: "test",
+		DICVALUES.PORTRAIT: "res://assets/npc/orange/orangeportrait1.png",
+		DICVALUES.TEXTCOLOR: Color.ORANGE,
+		DICVALUES.TYPESOUND: "res://assets/npc/orange/conehead_dialogue.wav",
+		DICVALUES.TYPESPEED: 0.04,
+}
 ]
 
 func _init():
@@ -28,6 +35,6 @@ func _init():
 
 func fetch(character: String) -> Dictionary:
 	for N in character_array:
-		if N[DICVALUES.ID] == character:
+		if N[DICVALUES.ID].to_lower() == character.to_lower():
 			return N
 	return default_dict

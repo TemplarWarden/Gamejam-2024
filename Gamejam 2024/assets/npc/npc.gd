@@ -18,8 +18,6 @@ class_name NPC
 	get:
 		return owned_interactable
 
-@export var identifier: String
-@export var npcportrait: Texture
 @export var npcdialogue: DialogueResource
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -46,9 +44,7 @@ func _process(_delta):
 
 	
 func talk_to():
-	#print_debug("talking")
 	DialogueManager.show_dialogue_balloon(npcdialogue)
-	pass
 	
 func recieve_click(object: Clickable) -> void:
 	signal_player_target(object)

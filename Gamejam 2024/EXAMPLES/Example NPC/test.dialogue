@@ -2,15 +2,17 @@
 
 #Dcumetntation can be found https://github.com/nathanhoad/godot_dialogue_manager
 #You should be able to use [i]Markup[/i] to modify how text appears for one off situations
+#character names are used as an identifier in res://autoloads/character_text_resource_manager.gd to determine the features of the text
+#character names are case insensitive
 
-Player: [#side=left] This is some dialogue.
-Orange: [#side=right] Here are some choices.
+Default: [#side=left] This is some dialogue.
+Test: [#side=right] Here are some choices.
 - Left side
 	Nathan: [#side=left] You picked the first one. 
 	do [GameManager.set_flag("left picks", GameManager.get_flag("left picks") + 1)]
 	Nathan: you picked the left one {{GameManager.get_flag("left picks")}} times. 
 - Right side
-	Nathan: [#side=right] You picked the second one.
+	Default: [#side=right] You picked the second one.
 	if GameManager.get_flag("right pick") == 0
 		Nathan: You have not picked this before 
 		do [GameManager.set_flag("right pick", 1)]

@@ -24,6 +24,7 @@ extends CanvasLayer
 @onready var dialogue_label: DialogueLabel = dialogue_label_left
 @onready var portrait: TextureRect = portrait_left
 @onready var containter: Control = container_left
+@onready var audio: AudioStreamPlayer2D = left_audio
 
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
@@ -197,21 +198,26 @@ func pick_label(line: DialogueLine) -> DialogueLabel:
 	var new_label = dialogue_label
 	var new_portrait = portrait
 	var new_container = containter
-	var audio
+	var new_audio = audio
 	var tag = line.get_tag_value("side")
-	if tag == "left" or  tag == "Left":
+	print_debug("print side ", tag)
+	if tag.to_lower() == "left":
 			new_label = dialogue_label_left
 			new_portrait = portrait_left
 			new_container = container_left
-			audio = left_audio
-	if tag == "right" or tag == "Right":
+			new_audio = left_audio
+	if tag.to_lower() == "right":
 			new_label = dialogue_label_right
 			new_portrait = portrait_right
 			new_container = container_right
-			audio = right_audio
+			new_audio = right_audio
 	
 	#set balloon features according to characer name from resource 
-	set_label_details(new_label, new_portrait, audio, line.character)
+	dialogue_label = new_label
+	portrait = new_portrait 
+	containter = new_container
+	audio = new_audio
+	set_label_details(line)
 	
 	layer_visibiity(new_portrait, true, 1)
 	layer_visibiity(new_container, true, 1)
@@ -226,9 +232,18 @@ func read_character_resource(character: String) -> Dictionary:
 	CharacterTextResourceManager.fetch(character)
 	return CharacterTextResourceManager.fetch(character)
 	
-func set_label_details(label: DialogueLabel, portrait: TextureRect, audio: AudioStreamPlayer2D, character: String) -> void:
-	var details: Dictionary = read_character_resource(character)
+func set_label_details(line: DialogueLine) -> void:
+	var details: Dictionary = read_character_resource(line.character)
+	
 	portrait.texture = load(details[CharacterTextResourceManager.DICVALUES.PORTRAIT])
+	
+	var color = details[CharacterTextResourceManager.DICVALUES.TEXTCOLOR].to_rgba32()
+	
+	line.text = "[color=" + str(color) + "]" + line.text + "[/color]"
+	
+	audio.stream = load(details[CharacterTextResourceManager.DICVALUES.TYPESOUND])
+	
+	dialogue_label.seconds_per_step = details[CharacterTextResourceManager.DICVALUES.TYPESPEED]
 	
 
 func _on_dialogue_label_left_spoke(letter, letter_index, speed):
