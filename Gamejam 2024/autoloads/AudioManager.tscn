@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://autoloads/audio_manager.gd" id="2_hq3kw"]
 
 [node name="AudioManager" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_6ja4q")
 autoplay = true
 bus = &"Background Music"
