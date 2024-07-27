@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=9 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
-[ext_resource type="Script" path="res://assets/scenes/gameplay/roomhandler.gd" id="2_knwnv"]
+[ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
 [ext_resource type="AudioStream" uid="uid://ynltavb8w7b1" path="res://audio/music/overworld.wav" id="3_j4co1"]
 [ext_resource type="Texture2D" uid="uid://1yh55pgy1b16" path="res://Graphics (Placeholder)/living_roomfloorlayerroomwithoutborder2.png" id="4_s4ky4"]
 [ext_resource type="PackedScene" uid="uid://ej8bk0gk6y1k" path="res://EXAMPLES/Example NPC/example_npc.tscn" id="5_1s8xs"]
 [ext_resource type="PackedScene" uid="uid://cm5jk32itd13m" path="res://EXAMPLES/Example Door/Example Door.tscn" id="5_811nh"]
 [ext_resource type="PackedScene" uid="uid://dxaypel6dw601" path="res://assets/components/walls.tscn" id="5_wpasl"]
+[ext_resource type="AudioStream" uid="uid://e0bgnptnil3n" path="res://audio/music/coneheadtheme.wav" id="8_m8h0k"]
 
 [node name="Game" type="Node2D"]
 
@@ -20,79 +21,157 @@ script = ExtResource("2_knwnv")
 music = ExtResource("3_j4co1")
 
 [node name="Camera2D" type="Camera2D" parent="Room0 (Main Hall)"]
+metadata/_edit_lock_ = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Room0 (Main Hall)"]
 current = true
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Room0 (Main Hall)"]
+[node name="Background" type="Sprite2D" parent="Room0 (Main Hall)"]
 scale = Vector2(1.5, 1.501)
 texture = ExtResource("4_s4ky4")
+metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room0 (Main Hall)" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
 
 [node name="Example NPC" parent="Room0 (Main Hall)" instance=ExtResource("5_1s8xs")]
 position = Vector2(100, -100)
 
-[node name="ExampleDoor" parent="Room0 (Main Hall)" instance=ExtResource("5_811nh")]
+[node name="ExampleDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("5_811nh")]
 position = Vector2(317, -357)
-metadata/_edit_group_ = true
-
-[node name="Door" parent="Room0 (Main Hall)/ExampleDoor" index="0" node_paths=PackedStringArray("target_door", "my_room")]
-target_door = NodePath("../../../Room1 (Dining Hall)/ExampleDoor/Door")
-my_room = NodePath("../..")
+target_door = NodePath("../../Room1 (Dining Hall)2/ExampleDoor")
+my_room = NodePath("..")
 
 [node name="Room1 (Dining Hall)" type="Node2D" parent="."]
 position = Vector2(-1455, -1071)
 script = ExtResource("2_knwnv")
+music = ExtResource("8_m8h0k")
 
 [node name="Camera2D" type="Camera2D" parent="Room1 (Dining Hall)"]
+metadata/_edit_lock_ = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Room1 (Dining Hall)"]
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="Room1 (Dining Hall)"]
+[node name="Background" type="Sprite2D" parent="Room1 (Dining Hall)"]
 scale = Vector2(1.5, 1.501)
 texture = ExtResource("4_s4ky4")
+metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room1 (Dining Hall)" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
 
-[node name="ExampleDoor" parent="Room1 (Dining Hall)" instance=ExtResource("5_811nh")]
+[node name="ExampleDoor" parent="Room1 (Dining Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("5_811nh")]
 position = Vector2(313, -355)
-metadata/_edit_group_ = true
+target_door = NodePath("../../Room0 (Main Hall)/ExampleDoor")
+my_room = NodePath("..")
 
-[node name="Door" parent="Room1 (Dining Hall)/ExampleDoor" index="0" node_paths=PackedStringArray("target_door", "my_room")]
-target_door = NodePath("../../../Room0 (Main Hall)/ExampleDoor/Door")
-my_room = NodePath("../..")
+[node name="Room1 (Dining Hall)2" type="Node2D" parent="."]
+position = Vector2(-1455, -1071)
+script = ExtResource("2_knwnv")
+music = ExtResource("8_m8h0k")
+
+[node name="Camera2D" type="Camera2D" parent="Room1 (Dining Hall)2"]
+metadata/_edit_lock_ = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Room1 (Dining Hall)2"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Room1 (Dining Hall)2"]
+scale = Vector2(1.5, 1.501)
+texture = ExtResource("4_s4ky4")
+metadata/_edit_lock_ = true
+
+[node name="Walls" parent="Room1 (Dining Hall)2" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
+
+[node name="ExampleDoor" parent="Room1 (Dining Hall)2" node_paths=PackedStringArray("owned_clickable", "owned_interactable", "target_door", "reciever_node", "my_room", "door_sound") instance=ExtResource("5_811nh")]
+position = Vector2(313, -355)
+owned_clickable = NodePath("../../Room1 (Dining Hall)/ExampleDoor/clickable")
+owned_interactable = NodePath("../../Room1 (Dining Hall)/ExampleDoor/interactable")
+target_door = NodePath("../../Room0 (Main Hall)/ExampleDoor")
+reciever_node = NodePath("../../Room1 (Dining Hall)/ExampleDoor/Destination")
+my_room = NodePath("../../Room1 (Dining Hall)")
+door_sound = NodePath("../../Room1 (Dining Hall)/ExampleDoor/AudioStreamPlayer2D")
 
 [node name="Room2 (Bedroom)" type="Node2D" parent="."]
 position = Vector2(720, -960)
-metadata/_edit_group_ = true
+script = ExtResource("2_knwnv")
 
 [node name="Camera2D" type="Camera2D" parent="Room2 (Bedroom)"]
+metadata/_edit_lock_ = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Room2 (Bedroom)"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Room2 (Bedroom)"]
+metadata/_edit_lock_ = true
+
+[node name="Walls" parent="Room2 (Bedroom)" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
 
 [node name="Room3 (Transition Hall)" type="Node2D" parent="."]
 position = Vector2(1440, 0)
-metadata/_edit_group_ = true
+script = ExtResource("2_knwnv")
 
 [node name="Camera2D" type="Camera2D" parent="Room3 (Transition Hall)"]
+metadata/_edit_lock_ = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Room3 (Transition Hall)"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Room3 (Transition Hall)"]
+metadata/_edit_lock_ = true
+
+[node name="Walls" parent="Room3 (Transition Hall)" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
 
 [node name="Room4 (Living Room)" type="Node2D" parent="."]
 position = Vector2(720, 960)
-metadata/_edit_group_ = true
+script = ExtResource("2_knwnv")
 
 [node name="Camera2D" type="Camera2D" parent="Room4 (Living Room)"]
+metadata/_edit_lock_ = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Room4 (Living Room)"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Room4 (Living Room)"]
+metadata/_edit_lock_ = true
+
+[node name="Walls" parent="Room4 (Living Room)" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
 
 [node name="Room5 (Study)" type="Node2D" parent="."]
 position = Vector2(-720, 960)
-metadata/_edit_group_ = true
+script = ExtResource("2_knwnv")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Room5 (Study)"]
-anchor_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Room5 (Study)"]
+metadata/_edit_lock_ = true
+
+[node name="Walls" parent="Room5 (Study)" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Room5 (Study)"]
+metadata/_edit_lock_ = true
 
 [node name="Room6 (Green House" type="Node2D" parent="."]
 position = Vector2(2880, -480)
-metadata/_edit_group_ = true
+script = ExtResource("2_knwnv")
 
 [node name="Camera2D" type="Camera2D" parent="Room6 (Green House"]
+metadata/_edit_lock_ = true
 
-[editable path="Room0 (Main Hall)/ExampleDoor"]
-[editable path="Room1 (Dining Hall)/ExampleDoor"]
+[node name="AudioListener2D" type="AudioListener2D" parent="Room6 (Green House"]
+metadata/_edit_lock_ = true
+
+[node name="Walls" parent="Room6 (Green House" instance=ExtResource("5_wpasl")]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Room6 (Green House"]
+metadata/_edit_lock_ = true

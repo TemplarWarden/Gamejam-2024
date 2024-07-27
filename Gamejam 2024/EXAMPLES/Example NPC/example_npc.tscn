@@ -14,7 +14,7 @@ size = Vector2(100, 180)
 size = Vector2(100, 180)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yk88"]
-size = Vector2(100, 180)
+size = Vector2(99, 179)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqeeu"]
 font = ExtResource("7_00e72")

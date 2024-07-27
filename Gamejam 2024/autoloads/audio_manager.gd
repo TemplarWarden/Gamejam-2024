@@ -4,6 +4,7 @@ extends AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("finished", music_loop_catcher)
 	pass # Replace with function body.
 
 
@@ -11,10 +12,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func play_music(music: AudioStreamWAV, volume: float = 0) -> void:
+func play_music(music: AudioStreamWAV, loop: bool = true, volume: float = 0) -> void:
 	if stream == music:
 		return
-	music.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	stream = music
 	volume_db = volume
 	play()
@@ -31,4 +31,5 @@ func play_sound_effect_instance(path: String, volume: float = 0) -> AudioStreamP
 	sfx.connect("finished", sfx.queue_free)
 	return sfx
 	
-	
+func music_loop_catcher() -> void:
+	play()

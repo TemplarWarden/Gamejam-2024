@@ -11,7 +11,10 @@ enum AudioID {CONFIRM, NAVIGATE, CANCEL}
 var has_navigate_sounds: bool = true
 var main_menu_scene:String = "res://assets/scenes/mainmenu/mainmenu.tscn"
 var is_paused = false
+
 @onready var previous_focus: Control = %ResumeButton
+@onready var menu: Control = $Menu
+@onready var pause_control: Control = $Pause
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,9 +50,10 @@ func pause(passedbool: bool) -> void:
 	else:
 		current_focus = previous_focus
 	if is_instance_valid(current_focus): current_focus.grab_focus()	
-	has_navigate_sounds = true
 	is_paused = passedbool
-	visible = passedbool
+	has_navigate_sounds = passedbool
+	menu.visible = passedbool
+	pause_control.visible = !passedbool
 	
 func run_sfx(type: AudioID, will_wait: bool = false) -> bool:
 	var ref = AudioManager.play_sound_effect_instance(sfxdict[type])
@@ -58,5 +62,10 @@ func run_sfx(type: AudioID, will_wait: bool = false) -> bool:
 
 func _button_exited() -> void:
 	if has_navigate_sounds:
-		print_debug("focus loss")
 		run_sfx(AudioID.NAVIGATE)
+
+func _on_pause_button_pressed():
+	if has_navigate_sounds:
+		run_sfx(AudioID.CONFIRM)
+	pause_control.release_focus()
+	pause(true)

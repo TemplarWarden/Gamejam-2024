@@ -8,7 +8,8 @@ enum AudioID {CONFIRM, NAVIGATE, CANCEL}
 	AudioID.CANCEL: "res://audio/sfx/menuexit.wav"
 }
 
-@export var menu_music: AudioStreamWAV = load("res://audio/music/overworld.wav")
+@export var menu_music: AudioStreamWAV = preload("res://audio/music/overworld.wav")
+@export var game_music: AudioStreamWAV = preload("res://audio/music/overworld.wav")
 
 @onready var game_scene:String = "res://assets/scenes/gameplay/program_manager.tscn"
 
@@ -16,7 +17,7 @@ var has_navigate_sounds = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	AudioManager.play_music(menu_music)
 	has_navigate_sounds = false
 	%PlayButton.grab_focus()
 	%ContinueButton.set_visible(GameManager.has_running_game)
@@ -33,6 +34,7 @@ func _on_play_button_pressed():
 	has_navigate_sounds = false
 	GameManager.reset_manager()
 	GameManager.has_running_game = true
+	AudioManager.play_music(game_music)
 	run_sfx(AudioID.CONFIRM)
 	change_scene()
 

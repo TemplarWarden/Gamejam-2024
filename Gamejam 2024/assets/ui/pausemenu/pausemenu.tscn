@@ -1,11 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjaxcolwg0vla"]
+[gd_scene load_steps=3 format=3 uid="uid://bjaxcolwg0vla"]
 
 [ext_resource type="Script" path="res://assets/ui/pausemenu/pause_menu.gd" id="1_wtlio"]
+[ext_resource type="Theme" uid="uid://cw1l2t36qm1h4" path="res://assets/font/font_theme.tres" id="3_l6xhb"]
 
 [node name="PauseLayer" type="CanvasLayer"]
 process_mode = 3
 layer = 4
 script = ExtResource("1_wtlio")
+
+[node name="Pause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pause Button" type="Button" parent="Pause/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_l6xhb")
+text = "Pause"
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -56,6 +82,7 @@ focus_next = NodePath("../ResumeButton")
 focus_previous = NodePath("../MenuButton")
 text = "Quit"
 
+[connection signal="pressed" from="Pause/Panel/Pause Button" to="." method="_on_pause_button_pressed"]
 [connection signal="focus_exited" from="Menu/MarginContainer/VBoxContainer/ResumeButton" to="." method="_button_exited"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="focus_exited" from="Menu/MarginContainer/VBoxContainer/MenuButton" to="." method="_button_exited"]
