@@ -1,19 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=12 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
 [ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
 [ext_resource type="AudioStream" uid="uid://ynltavb8w7b1" path="res://audio/music/overworld.wav" id="3_j4co1"]
 [ext_resource type="Texture2D" uid="uid://1yh55pgy1b16" path="res://Graphics (Placeholder)/living_roomfloorlayerroomwithoutborder2.png" id="4_s4ky4"]
 [ext_resource type="PackedScene" uid="uid://ej8bk0gk6y1k" path="res://EXAMPLES/Example NPC/example_npc.tscn" id="5_1s8xs"]
-[ext_resource type="PackedScene" uid="uid://cm5jk32itd13m" path="res://EXAMPLES/Example Door/Example Door.tscn" id="5_811nh"]
 [ext_resource type="PackedScene" uid="uid://dxaypel6dw601" path="res://assets/components/walls.tscn" id="5_wpasl"]
+[ext_resource type="PackedScene" uid="uid://bdsh276cfu3aq" path="res://assets/npc/red/NPCRed.tscn" id="7_0uevp"]
 [ext_resource type="AudioStream" uid="uid://e0bgnptnil3n" path="res://audio/music/coneheadtheme.wav" id="8_m8h0k"]
+[ext_resource type="Texture2D" uid="uid://dxvrk4opv1n03" path="res://assets/rooms/dininghallfloor1.png" id="9_8vsyo"]
+[ext_resource type="Texture2D" uid="uid://ctd72tofm5n5k" path="res://assets/rooms/bedroomfloor1.png" id="10_erhxn"]
+[ext_resource type="Texture2D" uid="uid://ba77ilkkxs1mj" path="res://assets/rooms/livingroomfloor1.png" id="11_o0ud2"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_1lyiy")]
 unique_name_in_owner = true
-position = Vector2(-400, 0)
+position = Vector2(-445, -12)
 movement_speed = 200.0
 
 [node name="Room0 (Main Hall)" type="Node2D" parent="."]
@@ -32,16 +35,12 @@ scale = Vector2(1.5, 1.501)
 texture = ExtResource("4_s4ky4")
 metadata/_edit_lock_ = true
 
+[node name="Example NPC" parent="Room0 (Main Hall)" instance=ExtResource("5_1s8xs")]
+
 [node name="Walls" parent="Room0 (Main Hall)" instance=ExtResource("5_wpasl")]
 metadata/_edit_lock_ = true
 
-[node name="Example NPC" parent="Room0 (Main Hall)" instance=ExtResource("5_1s8xs")]
-position = Vector2(100, -100)
-
-[node name="ExampleDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("5_811nh")]
-position = Vector2(317, -357)
-target_door = NodePath("../../Room1 (Dining Hall)2/ExampleDoor")
-my_room = NodePath("..")
+[node name="NpcRed" parent="Room0 (Main Hall)" instance=ExtResource("7_0uevp")]
 
 [node name="Room1 (Dining Hall)" type="Node2D" parent="."]
 position = Vector2(-1455, -1071)
@@ -54,46 +53,12 @@ metadata/_edit_lock_ = true
 [node name="AudioListener2D" type="AudioListener2D" parent="Room1 (Dining Hall)"]
 metadata/_edit_lock_ = true
 
-[node name="Background" type="Sprite2D" parent="Room1 (Dining Hall)"]
-scale = Vector2(1.5, 1.501)
-texture = ExtResource("4_s4ky4")
-metadata/_edit_lock_ = true
+[node name="Sprite2D" type="Sprite2D" parent="Room1 (Dining Hall)"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_8vsyo")
 
 [node name="Walls" parent="Room1 (Dining Hall)" instance=ExtResource("5_wpasl")]
 metadata/_edit_lock_ = true
-
-[node name="ExampleDoor" parent="Room1 (Dining Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("5_811nh")]
-position = Vector2(313, -355)
-target_door = NodePath("../../Room0 (Main Hall)/ExampleDoor")
-my_room = NodePath("..")
-
-[node name="Room1 (Dining Hall)2" type="Node2D" parent="."]
-position = Vector2(-1455, -1071)
-script = ExtResource("2_knwnv")
-music = ExtResource("8_m8h0k")
-
-[node name="Camera2D" type="Camera2D" parent="Room1 (Dining Hall)2"]
-metadata/_edit_lock_ = true
-
-[node name="AudioListener2D" type="AudioListener2D" parent="Room1 (Dining Hall)2"]
-metadata/_edit_lock_ = true
-
-[node name="Background" type="Sprite2D" parent="Room1 (Dining Hall)2"]
-scale = Vector2(1.5, 1.501)
-texture = ExtResource("4_s4ky4")
-metadata/_edit_lock_ = true
-
-[node name="Walls" parent="Room1 (Dining Hall)2" instance=ExtResource("5_wpasl")]
-metadata/_edit_lock_ = true
-
-[node name="ExampleDoor" parent="Room1 (Dining Hall)2" node_paths=PackedStringArray("owned_clickable", "owned_interactable", "target_door", "reciever_node", "my_room", "door_sound") instance=ExtResource("5_811nh")]
-position = Vector2(313, -355)
-owned_clickable = NodePath("../../Room1 (Dining Hall)/ExampleDoor/clickable")
-owned_interactable = NodePath("../../Room1 (Dining Hall)/ExampleDoor/interactable")
-target_door = NodePath("../../Room0 (Main Hall)/ExampleDoor")
-reciever_node = NodePath("../../Room1 (Dining Hall)/ExampleDoor/Destination")
-my_room = NodePath("../../Room1 (Dining Hall)")
-door_sound = NodePath("../../Room1 (Dining Hall)/ExampleDoor/AudioStreamPlayer2D")
 
 [node name="Room2 (Bedroom)" type="Node2D" parent="."]
 position = Vector2(720, -960)
@@ -106,6 +71,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Room2 (Bedroom)"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_erhxn")
 metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room2 (Bedroom)" instance=ExtResource("5_wpasl")]
@@ -138,6 +105,8 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Room4 (Living Room)"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_o0ud2")
 metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room4 (Living Room)" instance=ExtResource("5_wpasl")]
@@ -146,7 +115,6 @@ metadata/_edit_lock_ = true
 [node name="Room5 (Study)" type="Node2D" parent="."]
 position = Vector2(-720, 960)
 script = ExtResource("2_knwnv")
-metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Room5 (Study)"]
 metadata/_edit_lock_ = true
@@ -160,18 +128,18 @@ metadata/_edit_lock_ = true
 [node name="Background" type="Sprite2D" parent="Room5 (Study)"]
 metadata/_edit_lock_ = true
 
-[node name="Room6 (Green House" type="Node2D" parent="."]
+[node name="Room6 (Green House)" type="Node2D" parent="."]
 position = Vector2(2880, -480)
 script = ExtResource("2_knwnv")
 
-[node name="Camera2D" type="Camera2D" parent="Room6 (Green House"]
+[node name="Camera2D" type="Camera2D" parent="Room6 (Green House)"]
 metadata/_edit_lock_ = true
 
-[node name="AudioListener2D" type="AudioListener2D" parent="Room6 (Green House"]
+[node name="AudioListener2D" type="AudioListener2D" parent="Room6 (Green House)"]
 metadata/_edit_lock_ = true
 
-[node name="Walls" parent="Room6 (Green House" instance=ExtResource("5_wpasl")]
+[node name="Walls" parent="Room6 (Green House)" instance=ExtResource("5_wpasl")]
 metadata/_edit_lock_ = true
 
-[node name="Background" type="Sprite2D" parent="Room6 (Green House"]
+[node name="Background" type="Sprite2D" parent="Room6 (Green House)"]
 metadata/_edit_lock_ = true

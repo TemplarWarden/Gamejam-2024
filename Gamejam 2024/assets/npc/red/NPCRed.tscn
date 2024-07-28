@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdsh276cfu3aq"]
+[gd_scene load_steps=9 format=3 uid="uid://bdsh276cfu3aq"]
 
 [ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_midv1"]
 [ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_1kics"]
 [ext_resource type="Resource" uid="uid://dt6i28ugcx87v" path="res://assets/npc/red/reddialogue.dialogue" id="2_ink56"]
 [ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_xl88f"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_2oggb"]
+[ext_resource type="SpriteFrames" uid="uid://dy1h1cb4g3jqt" path="res://assets/npc/red/red.tres" id="5_kf75p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gg02c"]
+radius = 60.0
+height = 180.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_xty4q"]
 font = ExtResource("4_2oggb")
@@ -20,12 +25,26 @@ npcdialogue = ExtResource("2_ink56")
 [node name="clickable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("2_1kics")]
 pop_up = NodePath("../Node2D")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/clickable"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_gg02c")
+
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_xl88f")]
 pop_up = NodePath("../Node2D")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/interactable"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_gg02c")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/StaticBody2D"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_gg02c")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+sprite_frames = ExtResource("5_kf75p")
+autoplay = "default"
 
 [node name="Node2D" type="Node2D" parent="NPC"]
 position = Vector2(-3, -137)

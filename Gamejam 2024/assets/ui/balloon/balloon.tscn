@@ -225,11 +225,12 @@ text = "Response example"
 
 [node name="LeftSpeaker" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, 480)
 bus = &"Dialogue FX"
 
 [node name="RightSpeaker" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1440, 0)
+position = Vector2(1440, 480)
 stream = ExtResource("7_jqaro")
 bus = &"Dialogue FX"
 

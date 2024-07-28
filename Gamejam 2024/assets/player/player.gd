@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var movement_speed:float = 200.0
-var target_move
+var target_move: Vector2
 var target_object: Clickable
 var area_object: Interactable
 
@@ -11,12 +11,15 @@ var has_interact_body:bool = false
 
 var can_move:bool = true
 
+@onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready():
 	GameManager.bind_player(self)
 	target_move = position
 
 func _process(delta):
 	move(delta)
+	update_direction()
 
 #move to target location, if very close, stop movement (prevent jittering)
 func _physics_process(delta):
@@ -32,6 +35,7 @@ func move(delta):
 		var movement = Input.get_vector("c_left", "c_right", "c_up", "c_down")
 		if movement.length() > 0:
 			target_move = position + movement*movement_speed * delta
+			#play walk animations
 
 #reads input to set movement to location
 func move_to(target_position):
@@ -102,3 +106,12 @@ func _on_interaction_area_area_entered(area):
 
 func _on_interaction_area_area_exited(area):
 	poll_exited(area)
+
+func update_direction():
+	if position != target_move:
+		var direction = position.direction_to(target_move)
+		if direction.x > 0:
+			sprite.flip_h = false
+		elif direction.x < 0:
+			sprite.flip_h = true
+		

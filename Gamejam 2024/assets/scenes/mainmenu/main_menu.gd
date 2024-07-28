@@ -8,7 +8,7 @@ enum AudioID {CONFIRM, NAVIGATE, CANCEL}
 	AudioID.CANCEL: "res://audio/sfx/menuexit.wav"
 }
 
-@export var menu_music: AudioStreamWAV = preload("res://audio/music/overworld.wav")
+@export var menu_music: AudioStreamWAV = preload("res://audio/music/themedraft.wav")
 @export var game_music: AudioStreamWAV = preload("res://audio/music/overworld.wav")
 
 @onready var game_scene:String = "res://assets/scenes/gameplay/program_manager.tscn"

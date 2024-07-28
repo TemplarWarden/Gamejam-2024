@@ -2,16 +2,24 @@ extends AudioStreamPlayer
 
 @onready var SFXplayer: AudioStreamPlayer = $GlobalSFX
 
+var mastervolume: float = -6
+var musicvolume: float = -12
+var musicFXvolume: float = 0
+var SFXvolume: float = 0
+var dialogueFXvolume: float = 8
+
 var last_loop_track: AudioStreamWAV
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_volume()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func set_volume():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), mastervolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Background Music"), musicvolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music FX"), musicFXvolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), SFXvolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("DialogueFX"), dialogueFXvolume)
 
 func play_music(music: AudioStreamWAV, loop: bool = true, volume: float = 0) -> void:
 	if stream == music:
@@ -25,8 +33,6 @@ func play_music(music: AudioStreamWAV, loop: bool = true, volume: float = 0) -> 
 		music_loop_catcher(last_loop_track)
 	play()
 	
-	
-	
 func transition_music(music: AudioStreamWAV, time: float, volume: float = 0):
 	pass
 
@@ -34,6 +40,7 @@ func play_sound_effect_instance(path: String, volume: float = 0) -> AudioStreamP
 	var sfx = AudioStreamPlayer.new()
 	sfx.autoplay = true
 	sfx.stream = load(path)
+	sfx.bus = "SFX"
 	volume_db = volume
 	add_child(sfx)
 	sfx.connect("finished", sfx.queue_free)

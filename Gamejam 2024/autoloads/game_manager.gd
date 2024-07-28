@@ -70,3 +70,9 @@ func get_flag(key: String) -> int:
 	if !flag_dictonary.has(key):
 		set_flag(key)
 	return flag_dictonary[key]
+
+func call_good_end() -> void:
+	pass
+
+func call_bad_end() -> void:
+	pass

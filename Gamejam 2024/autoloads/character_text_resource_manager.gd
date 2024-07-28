@@ -4,23 +4,31 @@ enum DICVALUES { ID, PORTRAIT, TEXTCOLOR, TYPESOUND, TYPESPEED }
 
 var dict_legend = {
 		"id": "default",
-		"portrait": "res://Graphics (Placeholder)/yellowchef1.png",
+		"portrait": "res://assets/player/detectiveportrait1.pn",
 		"text color": Color.WHITE,
-		"typing sound": "res://audio/chef_dialogue.wav",
+		"typing sound": "res://assets/player/protagdialogue.wav",
 		"typing speed": 0.01,
 }
 
 var default_dict: Dictionary = {
 		DICVALUES.ID: "default",
-		DICVALUES.PORTRAIT: "res://Graphics (Placeholder)/yellowchef1.png",
+		DICVALUES.PORTRAIT: "res://assets/player/detectiveportrait1.png",
 		DICVALUES.TEXTCOLOR: Color.WHITE,
-		DICVALUES.TYPESOUND: "res://audio/chef_dialogue.wav",
+		DICVALUES.TYPESOUND: "res://assets/player/protagdialogue.wav",
+		DICVALUES.TYPESPEED: 0.05,
+}
+var player_dict: Dictionary = {
+		DICVALUES.ID: "player",
+		DICVALUES.PORTRAIT: "res://assets/player/detectiveportrait1.png",
+		DICVALUES.TEXTCOLOR: Color.WHITE,
+		DICVALUES.TYPESOUND: "res://assets/player/protagdialogue.wav",
 		DICVALUES.TYPESPEED: 0.05,
 }
 
 var character_array: Array = [
 
 	default_dict,
+	player_dict,
 	 {
 		DICVALUES.ID: "test",
 		DICVALUES.PORTRAIT: "res://assets/npc/orange/orangeportrait1.png",
