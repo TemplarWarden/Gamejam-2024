@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://jtbdrmc7edqf"
+path="res://.godot/imported/bluedialogue.dialogue-2e324ffbd9f8fa9e6dc499e00d5d6613.tres"
+
+[deps]
+
+source_file="res://assets/npc/blue/bluedialogue.dialogue"
+dest_files=["res://.godot/imported/bluedialogue.dialogue-2e324ffbd9f8fa9e6dc499e00d5d6613.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bd5tsffnx5y8h"
+path="res://.godot/imported/purpledialogue.dialogue-23af9ba2e6b2ec073e07a18fd33fe52e.tres"
+
+[deps]
+
+source_file="res://assets/npc/purple/purpledialogue.dialogue"
+dest_files=["res://.godot/imported/purpledialogue.dialogue-23af9ba2e6b2ec073e07a18fd33fe52e.tres"]
+
+[params]
+
+defaults=true

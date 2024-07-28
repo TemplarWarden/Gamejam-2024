@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bghg0rmu0tqi1"
-path="res://.godot/imported/chef_dialogue.wav-2219cdb38aaea83217fbed6dbfd050cc.sample"
+path="res://.godot/imported/chef_dialogue.wav-4e1a30e5dcbee95d93e79951d02f13ed.sample"
 
 [deps]
 
-source_file="res://audio/chef_dialogue.wav"
-dest_files=["res://.godot/imported/chef_dialogue.wav-2219cdb38aaea83217fbed6dbfd050cc.sample"]
+source_file="res://assets/npc/yellow/chef_dialogue.wav"
+dest_files=["res://.godot/imported/chef_dialogue.wav-4e1a30e5dcbee95d93e79951d02f13ed.sample"]
 
 [params]
 

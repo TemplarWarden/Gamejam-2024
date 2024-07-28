@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dobofxqnbdrev"
+path="res://.godot/imported/orangedialogue.dialogue-5d02a9886a4f75789a4ec517283130ce.tres"
+
+[deps]
+
+source_file="res://assets/npc/orange/orangedialogue.dialogue"
+dest_files=["res://.godot/imported/orangedialogue.dialogue-5d02a9886a4f75789a4ec517283130ce.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://r07sr0n3lyex"
+path="res://.godot/imported/corpsedialogue.dialogue-660914368d50a30245d81faafdbbdf19.tres"
+
+[deps]
+
+source_file="res://assets/npc/greycorpse/corpsedialogue.dialogue"
+dest_files=["res://.godot/imported/corpsedialogue.dialogue-660914368d50a30245d81faafdbbdf19.tres"]
+
+[params]
+
+defaults=true

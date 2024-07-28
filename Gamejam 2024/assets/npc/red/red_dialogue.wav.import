@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnxxe0ct3ui6b"
-path="res://.godot/imported/red_dialogue.wav-36e3b8a79383e6cbe53c15153abf5a9f.sample"
+path="res://.godot/imported/red_dialogue.wav-e0c60852aacc4c244d7c08d09d95a74f.sample"
 
 [deps]
 
-source_file="res://audio/red_dialogue.wav"
-dest_files=["res://.godot/imported/red_dialogue.wav-36e3b8a79383e6cbe53c15153abf5a9f.sample"]
+source_file="res://assets/npc/red/red_dialogue.wav"
+dest_files=["res://.godot/imported/red_dialogue.wav-e0c60852aacc4c244d7c08d09d95a74f.sample"]
 
 [params]
 

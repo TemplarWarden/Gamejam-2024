@@ -31,9 +31,8 @@ pop_up = NodePath("../Hover")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="clickable"]
 shape = SubResource("RectangleShape2D_8g50x")
 
-[node name="interactable" parent="." node_paths=PackedStringArray("pop_up") instance=ExtResource("3_u2kg2")]
+[node name="interactable" parent="." instance=ExtResource("3_u2kg2")]
 position = Vector2(0, 16)
-pop_up = NodePath("../Hover")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
 shape = SubResource("RectangleShape2D_7qdp3")

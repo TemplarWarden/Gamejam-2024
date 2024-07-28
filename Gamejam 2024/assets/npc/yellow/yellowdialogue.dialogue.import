@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cejnq62nn3r8h"
+path="res://.godot/imported/yellowdialogue.dialogue-f66b968fd4dbac9d66629dd041e0a827.tres"
+
+[deps]
+
+source_file="res://assets/npc/yellow/yellowdialogue.dialogue"
+dest_files=["res://.godot/imported/yellowdialogue.dialogue-f66b968fd4dbac9d66629dd041e0a827.tres"]
+
+[params]
+
+defaults=true

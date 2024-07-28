@@ -2,9 +2,10 @@ extends AudioStreamPlayer
 
 @onready var SFXplayer: AudioStreamPlayer = $GlobalSFX
 
+var last_loop_track: AudioStreamWAV
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("finished", music_loop_catcher)
 	pass # Replace with function body.
 
 
@@ -17,7 +18,14 @@ func play_music(music: AudioStreamWAV, loop: bool = true, volume: float = 0) -> 
 		return
 	stream = music
 	volume_db = volume
+	if loop:
+		last_loop_track = music
+		music_loop_catcher(music)
+	else:
+		music_loop_catcher(last_loop_track)
 	play()
+	
+	
 	
 func transition_music(music: AudioStreamWAV, time: float, volume: float = 0):
 	pass
@@ -31,5 +39,6 @@ func play_sound_effect_instance(path: String, volume: float = 0) -> AudioStreamP
 	sfx.connect("finished", sfx.queue_free)
 	return sfx
 	
-func music_loop_catcher() -> void:
-	play()
+func music_loop_catcher(track: AudioStreamWAV) -> void:
+	await finished
+	play_music(track)

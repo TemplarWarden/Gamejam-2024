@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdsh276cfu3aq"]
+
+[ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_midv1"]
+[ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_1kics"]
+[ext_resource type="Resource" uid="uid://dt6i28ugcx87v" path="res://assets/npc/red/reddialogue.dialogue" id="2_ink56"]
+[ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_xl88f"]
+[ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_2oggb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xty4q"]
+font = ExtResource("4_2oggb")
+font_size = 50
+
+[node name="NpcRed" type="Node2D"]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("owned_clickable", "owned_interactable") instance=ExtResource("1_midv1")]
+owned_clickable = NodePath("clickable")
+owned_interactable = NodePath("interactable")
+npcdialogue = ExtResource("2_ink56")
+
+[node name="clickable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("2_1kics")]
+pop_up = NodePath("../Node2D")
+
+[node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_xl88f")]
+pop_up = NodePath("../Node2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+
+[node name="Node2D" type="Node2D" parent="NPC"]
+position = Vector2(-3, -137)
+
+[node name="Label" type="Label" parent="NPC/Node2D"]
+offset_right = 5.0
+offset_bottom = 23.0
+text = "!"
+label_settings = SubResource("LabelSettings_xty4q")

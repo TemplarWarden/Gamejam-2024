@@ -12,7 +12,8 @@ var node_owner: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if is_instance_valid(pop_up):
+		pop_up.set_visible(false)
 
 #called from player
 func recieve_interact() -> void:

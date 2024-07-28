@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dbux3dyejge08"
+path="res://.godot/imported/greendialogue.dialogue-29fd6bf84549bcfd4bf36865f38fe749.tres"
+
+[deps]
+
+source_file="res://assets/npc/green/greendialogue.dialogue"
+dest_files=["res://.godot/imported/greendialogue.dialogue-29fd6bf84549bcfd4bf36865f38fe749.tres"]
+
+[params]
+
+defaults=true

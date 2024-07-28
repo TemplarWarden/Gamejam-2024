@@ -33,8 +33,7 @@ pop_up = NodePath("../Node2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
 shape = SubResource("RectangleShape2D_un1yh")
 
-[node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("5_h2ky1")]
-pop_up = NodePath("../Node2D")
+[node name="interactable" parent="NPC" instance=ExtResource("5_h2ky1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
 shape = SubResource("RectangleShape2D_ucwvm")
