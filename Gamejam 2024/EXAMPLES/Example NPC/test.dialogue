@@ -5,21 +5,21 @@
 #character names are used as an identifier in res://autoloads/character_text_resource_manager.gd to determine the features of the text
 #character names are case insensitive
 
-Default: [#side=left] This is some dialogue.
+Default: [#side=left][#hide=right] This is some dialogue.
 Test: [#side=right] Here are some choices.
 - Left side
-	Nathan: [#side=left] You picked the first one. 
+	Default: [#side=left] You picked the first one. 
 	do [GameManager.set_flag("left picks", GameManager.get_flag("left picks") + 1)]
-	Nathan: you picked the left one {{GameManager.get_flag("left picks")}} times. 
+	Default: you picked the left one {{GameManager.get_flag("left picks")}} times. 
 - Right side
-	Default: [#side=right] You picked the second one.
+	Test: [#side=right] You picked the second one.
 	if GameManager.get_flag("right pick") == 0
-		Nathan: You have not picked this before 
+		Test: You have not picked this before 
 		do [GameManager.set_flag("right pick", 1)]
 	elif GameManager.get_flag("right pick") == 1
-		Nathan: you have picked this before
+		Test: you have picked this before
 - Start again => start
 - End the conversation => END
-Nathan: For more information see the online documentation.
+Default: [#hide=left][#side=left] For more information see the online documentation. There should be no character portrait
 
 => END

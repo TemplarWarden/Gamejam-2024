@@ -28,6 +28,9 @@ extends CanvasLayer
 
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
+var hide_left: bool = false
+var hide_right: bool = false
+
 ## The dialogue resource
 var resource: DialogueResource
 
@@ -189,29 +192,44 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 #custom controls
 
 #pick label to be active and hide/transparent other label/portrait
-func pick_label(line: DialogueLine) -> DialogueLabel:
+func pick_label(line: DialogueLine) -> DialogueLabel:	
+	var tag2 = line.get_tag_value("hide")
+	if tag2.to_lower() == "left":
+		hide_left = true
+	elif tag2.to_lower() == "right": 
+		hide_right = true
+	var tag3 = line.get_tag_value("show")
+	if tag3.to_lower() == "left": 
+		hide_left = false
+	elif tag3.to_lower() == "right": 
+		hide_right = false
+	
 	layer_visibiity(container_left)
 	layer_visibiity(container_right)
-	layer_visibiity(portrait_left, true, 0.5)
-	layer_visibiity(portrait_right,true,0.5)
+	layer_visibiity(portrait_left, !hide_left, 0.5)
+	layer_visibiity(portrait_right,!hide_right,0.5)
 	
 	var new_label = dialogue_label
 	var new_portrait = portrait
 	var new_container = containter
 	var new_audio = audio
 	var tag = line.get_tag_value("side")
-	print_debug("print side ", tag)
+	var new_hide = portrait.is_visible()
+	
+	#print_debug("print side ", tag)
 	if tag.to_lower() == "left":
 			new_label = dialogue_label_left
 			new_portrait = portrait_left
 			new_container = container_left
 			new_audio = left_audio
+			new_hide = !hide_left
 	if tag.to_lower() == "right":
 			new_label = dialogue_label_right
 			new_portrait = portrait_right
 			new_container = container_right
 			new_audio = right_audio
-	
+			new_hide = !hide_right
+		
 	#set balloon features according to characer name from resource 
 	dialogue_label = new_label
 	portrait = new_portrait 
@@ -219,8 +237,9 @@ func pick_label(line: DialogueLine) -> DialogueLabel:
 	audio = new_audio
 	set_label_details(line)
 	
-	layer_visibiity(new_portrait, true, 1)
 	layer_visibiity(new_container, true, 1)
+	layer_visibiity(new_portrait, new_hide, 1)
+
 	
 	return new_label	
 

@@ -19,7 +19,7 @@ func set_volume():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Background Music"), musicvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music FX"), musicFXvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), SFXvolume)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("DialogueFX"), dialogueFXvolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialogue FX"), dialogueFXvolume)
 
 func play_music(music: AudioStreamWAV, loop: bool = true, volume: float = 0) -> void:
 	if stream == music:
