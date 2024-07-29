@@ -2,5 +2,8 @@
 
 [ext_resource type="Script" path="res://assets/door/door.gd" id="1_uqh2t"]
 
-[node name="Door" type="Node2D"]
+[node name="Door" type="Node2D" node_paths=PackedStringArray("owned_clickable", "owned_interactable", "door_sound")]
 script = ExtResource("1_uqh2t")
+owned_clickable = NodePath("")
+owned_interactable = NodePath("")
+door_sound = NodePath("")

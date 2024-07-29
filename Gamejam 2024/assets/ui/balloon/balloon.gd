@@ -256,10 +256,10 @@ func set_label_details(line: DialogueLine) -> void:
 	
 	portrait.texture = load(details[CharacterTextResourceManager.DICVALUES.PORTRAIT])
 	
-	var color = details[CharacterTextResourceManager.DICVALUES.TEXTCOLOR].to_rgba32()
+	var color = details[CharacterTextResourceManager.DICVALUES.TEXTCOLOR].to_html()
 	
-	line.text = "[color=" + str(color) + "]" + line.text + "[/color]"
-	
+	line.text = "[color=#" + str(color) + "]" + line.text + "[/color]"
+	print_debug(line.text)
 	audio.stream = load(details[CharacterTextResourceManager.DICVALUES.TYPESOUND])
 	
 	dialogue_label.seconds_per_step = details[CharacterTextResourceManager.DICVALUES.TYPESPEED]
