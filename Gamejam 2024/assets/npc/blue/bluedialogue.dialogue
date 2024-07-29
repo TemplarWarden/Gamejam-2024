@@ -1,13 +1,15 @@
 ~ this_is_a_node_title
+Player: [[Hello|Hey can we talk?]]
 
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
+Blue: [[good evening| Yes?|What is it?]]
+Player: [[What's your alibi| What's your story]]
+Blue: I was at work on the day of the murder, I was in a meeting with Orange for most of the day discussing changes to his Annuity, Mainly changing it to a lifetime duration. This was done at Mr Grey's request. We talked until about 7:30 pm, and the murder was at 9:00 pm. After the meeting Orange left and I had more meetings to attend to, I only came back once I had heard what happened.
 - First one
-	Nathan: You picked the first one.
+	Blue: 
 - Second one
-	Nathan: You picked the second one.
+	Blue: You picked the second one.
 - Start again => this_is_a_node_title
 - End the conversation => END
-Nathan: For more information see the online documentation.
+Blue: For more information see the online documentation.
 
 => END
