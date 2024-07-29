@@ -2,6 +2,15 @@ extends AudioStreamPlayer
 
 @onready var SFXplayer: AudioStreamPlayer = $GlobalSFX
 
+enum MenuAudioID {CONFIRM, NAVIGATE, CANCEL, BUMP}
+
+@export var menusfxdict = {
+	MenuAudioID.CONFIRM: "res://audio/sfx/menuconfirm.wav",
+	MenuAudioID.NAVIGATE: "res://audio/sfx/menunavigate.wav",
+	MenuAudioID.CANCEL: "res://audio/sfx/menuexit.wav",
+	MenuAudioID.BUMP: "res://audio/sfx/bumpsfx.wav"
+}
+
 var mastervolume: float = -6
 var musicvolume: float = -12
 var musicFXvolume: float = 0

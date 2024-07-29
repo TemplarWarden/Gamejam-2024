@@ -1,13 +1,5 @@
 extends Control
 
-enum AudioID {CONFIRM, NAVIGATE, CANCEL}
-
-@export var sfxdict = {
-	AudioID.CONFIRM: "res://audio/sfx/menuconfirm.wav",
-	AudioID.NAVIGATE: "res://audio/sfx/menunavigate.wav",
-	AudioID.CANCEL: "res://audio/sfx/menuexit.wav"
-}
-
 @export var menu_music: AudioStreamWAV = preload("res://audio/music/themedraft.wav")
 @export var game_music: AudioStreamWAV = preload("res://audio/music/overworld.wav")
 
@@ -28,19 +20,19 @@ func _ready():
 func _on_continue_button_pressed():
 	has_navigate_sounds = false
 	get_tree().change_scene_to_file(game_scene)
-	run_sfx(AudioID.CONFIRM)
+	run_sfx(AudioManager.MenuAudioID.CONFIRM)
 
 func _on_play_button_pressed():
 	has_navigate_sounds = false
 	GameManager.reset_manager()
 	GameManager.has_running_game = true
 	AudioManager.play_music(game_music)
-	run_sfx(AudioID.CONFIRM)
+	run_sfx(AudioManager.MenuAudioID.CONFIRM)
 	change_scene()
 
 func _on_quit_button_pressed():
 	has_navigate_sounds = false
-	run_sfx(AudioID.CANCEL, true)
+	run_sfx(AudioManager.MenuAudioID.CANCEL, true)
 	get_tree().quit()
 
 func _button_navigate() -> void:
@@ -49,11 +41,11 @@ func _button_navigate() -> void:
 func change_scene():
 	get_tree().change_scene_to_file(game_scene)
 
-func run_sfx(type: AudioID, will_wait: bool = false) -> bool:
-	var ref = AudioManager.play_sound_effect_instance(sfxdict[type])
+func run_sfx(type, will_wait: bool = false) -> bool:
+	var ref = AudioManager.play_sound_effect_instance(AudioManager.menusfxdict[type])
 	if will_wait: await ref.finished
 	return will_wait
 
 func _button_exited() -> void:
 	if has_navigate_sounds:
-		run_sfx(AudioID.NAVIGATE)
+		run_sfx(AudioManager.MenuAudioID.NAVIGATE)

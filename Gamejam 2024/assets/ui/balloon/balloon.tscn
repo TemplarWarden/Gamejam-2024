@@ -151,7 +151,6 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="Balloon/DialogueRight"]
-visible = false
 clip_children = 2
 layout_mode = 2
 offset_left = 510.0
@@ -171,7 +170,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DialogueLabelRight" parent="Balloon/DialogueRight/MarginContainer" instance=ExtResource("2_a8ve6")]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Dialogue..."
 
@@ -214,3 +212,4 @@ bus = &"Dialogue FX"
 [connection signal="spoke" from="Balloon/DialogueLeft/MarginContainer/DialogueLabelLeft" to="." method="_on_dialogue_label_left_spoke"]
 [connection signal="spoke" from="Balloon/DialogueRight/MarginContainer/DialogueLabelRight" to="." method="_on_dialogue_label_right_spoke"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="focus_exited" from="Balloon/Responses/ResponsesMenu/ResponseExample" to="." method="_on_response_example_focus_exited"]

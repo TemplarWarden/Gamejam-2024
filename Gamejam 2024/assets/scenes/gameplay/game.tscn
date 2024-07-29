@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=27 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
 [ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://buakfiocmqlay" path="res://assets/door/Right Door/RightDoor.tscn" id="9_ylbta"]
 [ext_resource type="Texture2D" uid="uid://ctd72tofm5n5k" path="res://assets/rooms/bedroomfloor1.png" id="10_erhxn"]
 [ext_resource type="AudioStream" uid="uid://cay148jcj575o" path="res://audio/music/redtheme.wav" id="10_i3eqd"]
+[ext_resource type="PackedScene" uid="uid://binibbvma363v" path="res://assets/npc/enddoor/enddoor.tscn" id="10_jacm8"]
 [ext_resource type="Texture2D" uid="uid://ba77ilkkxs1mj" path="res://assets/rooms/livingroomfloor1.png" id="11_o0ud2"]
 [ext_resource type="PackedScene" uid="uid://ysorktxshqjl" path="res://assets/npc/yellow/NPCYellow.tscn" id="12_tslcf"]
 [ext_resource type="PackedScene" uid="uid://b2rqxpxm3u3ox" path="res://assets/npc/green/NPCGreen.tscn" id="13_irp87"]
@@ -30,7 +31,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_1lyiy")]
 unique_name_in_owner = true
-position = Vector2(-445, -12)
+position = Vector2(-408, -14)
 movement_speed = 200.0
 
 [node name="Room0 (Main Hall)" type="Node2D" parent="."]
@@ -79,6 +80,9 @@ position = Vector2(-51, 5)
 position = Vector2(587, -2)
 target_door = NodePath("../../Room3 (Transition Hall)/LeftDoor")
 my_room = NodePath("..")
+
+[node name="Enddoor" parent="Room0 (Main Hall)" instance=ExtResource("10_jacm8")]
+position = Vector2(-585, 0)
 
 [node name="Room1 (Dining Hall)" type="Node2D" parent="."]
 position = Vector2(-1455, -1071)
