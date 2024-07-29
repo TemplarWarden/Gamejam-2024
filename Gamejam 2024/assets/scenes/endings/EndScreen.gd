@@ -1,13 +1,5 @@
 extends Control
 
-enum AudioID {CONFIRM, NAVIGATE, CANCEL}
-
-@export var sfxdict = {
-	AudioID.CONFIRM: "res://audio/sfx/menuconfirm.wav",
-	AudioID.NAVIGATE: "res://audio/sfx/menunavigate.wav",
-	AudioID.CANCEL: "res://audio/sfx/menuexit.wav"
-}
-
 var has_navigate_sounds = false
 var main_menu_scene:String = "res://assets/scenes/mainmenu/mainmenu.tscn"
 
@@ -19,19 +11,19 @@ func _ready():
 
 func _on_play_button_pressed():
 	has_navigate_sounds = false
-	run_sfx(AudioID.CONFIRM)
+	run_sfx(AudioManager.MenuAudioID.CONFIRM)
 	get_tree().change_scene_to_file(main_menu_scene)
 
 func _on_quit_button_pressed():
 	has_navigate_sounds = false
-	run_sfx(AudioID.CANCEL, true)
+	run_sfx(AudioManager.MenuAudioID.CANCEL, true)
 	get_tree().quit()
 
-func run_sfx(type: AudioID, will_wait: bool = false) -> bool:
-	var ref = AudioManager.play_sound_effect_instance(sfxdict[type])
+func run_sfx(type, will_wait: bool = false) -> bool:
+	var ref = AudioManager.play_sound_effect_instance(AudioManager.menusfxdict[type])
 	if will_wait: await ref.finished
 	return will_wait
 
 func _button_exited() -> void:
 	if has_navigate_sounds:
-		run_sfx(AudioID.NAVIGATE)
+		run_sfx(AudioManager.MenuAudioID.NAVIGATE)

@@ -275,3 +275,7 @@ func _on_dialogue_label_right_spoke(letter, letter_index, speed):
 		right_audio.pitch_scale = randf_range(0.9, 1.1)
 		right_audio.play()
 
+
+
+func _on_response_example_focus_exited():
+	AudioManager.play_sound_effect_instance(AudioManager.menusfxdict[AudioManager.MenuAudioID.BUMP])

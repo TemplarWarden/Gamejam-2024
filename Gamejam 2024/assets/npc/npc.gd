@@ -37,8 +37,6 @@ func _ready():
 	owned_clickable.connect("_on_recieve_hover", recieve_hover)
 	owned_interactable.connect("_on_recieve_interact", recieve_interact)
 	owned_interactable.connect("_on_recieve_hover", recieve_hover)
-	
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

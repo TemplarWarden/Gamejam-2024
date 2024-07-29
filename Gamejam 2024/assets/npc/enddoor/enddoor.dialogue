@@ -1,16 +1,16 @@
 ~ start
 
 Player: [#hide=right][#side=left] Who is reponsible?
-- [color=yellow]Yellow[/color]
+- Yellow
 	do GameManager.call_bad_end()
-- [color=yellow]Red[/color]
+- Red
 	do GameManager.call_bad_end()
-- [color=yellow]Green[/color]
+- Green
 	do GameManager.call_bad_end()
-- [color=yellow]Purple[/color]
+- Purple
 	do GameManager.call_bad_end()
-- [color=yellow]Orange[/color]
+- Orange
 	do GameManager.call_good_end()
-- [color=yellow]Yellow[/color]
+- Yellow
 	do GameManager.call_bad_end()
 => END

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://binibbvma363v"]
+
+[ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_iet3a"]
+[ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_lyspv"]
+[ext_resource type="Resource" uid="uid://d2w7mikda75ii" path="res://assets/npc/enddoor/enddoor.dialogue" id="2_r6j5b"]
+[ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_tddlt"]
+[ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="5_oc30j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt3el"]
+size = Vector2(150, 150)
+
+[sub_resource type="LabelSettings" id="LabelSettings_64uus"]
+font = ExtResource("5_oc30j")
+font_size = 50
+
+[node name="Enddoor" type="Node2D"]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("owned_clickable", "owned_interactable") instance=ExtResource("1_iet3a")]
+owned_clickable = NodePath("clickable")
+owned_interactable = NodePath("interactable")
+npcdialogue = ExtResource("2_r6j5b")
+
+[node name="clickable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("2_lyspv")]
+pop_up = NodePath("../Node2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
+shape = SubResource("RectangleShape2D_dt3el")
+
+[node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_tddlt")]
+pop_up = NodePath("../Node2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
+shape = SubResource("RectangleShape2D_dt3el")
+
+[node name="Node2D" type="Node2D" parent="NPC"]
+position = Vector2(-3, -137)
+
+[node name="Label" type="Label" parent="NPC/Node2D"]
+offset_right = 5.0
+offset_bottom = 23.0
+text = "!"
+label_settings = SubResource("LabelSettings_64uus")

@@ -1,13 +1,5 @@
 extends CanvasLayer
 
-enum AudioID {CONFIRM, NAVIGATE, CANCEL}
-
-@export var sfxdict = {
-	AudioID.CONFIRM: "res://audio/sfx/menuconfirm.wav",
-	AudioID.NAVIGATE: "res://audio/sfx/menunavigate.wav",
-	AudioID.CANCEL: "res://audio/sfx/menuexit.wav"
-}
-
 var has_navigate_sounds: bool = true
 var main_menu_scene:String = "res://assets/scenes/mainmenu/mainmenu.tscn"
 var is_paused = false
@@ -23,17 +15,17 @@ func _ready():
 
 func _on_resume_button_pressed():
 	has_navigate_sounds = false
-	run_sfx(AudioID.CANCEL)
+	run_sfx(AudioManager.MenuAudioID.CANCEL)
 	pause(false)
 
 func _on_menu_button_pressed():
 	has_navigate_sounds = false
-	run_sfx(AudioID.CONFIRM)
+	run_sfx(AudioManager.MenuAudioID.CONFIRM)
 	get_tree().change_scene_to_file(main_menu_scene)
 
 func _on_quit_button_pressed():
 	has_navigate_sounds = false
-	run_sfx(AudioID.CANCEL)
+	run_sfx(AudioManager.MenuAudioID.CANCEL)
 	get_tree().quit()
 
 func _input(event):
@@ -55,17 +47,17 @@ func pause(passedbool: bool) -> void:
 	menu.visible = passedbool
 	pause_control.visible = !passedbool
 	
-func run_sfx(type: AudioID, will_wait: bool = false) -> bool:
-	var ref = AudioManager.play_sound_effect_instance(sfxdict[type])
+func run_sfx(type, will_wait: bool = false) -> bool:
+	var ref = AudioManager.play_sound_effect_instance(AudioManager.menusfxdict[type])
 	if will_wait: await ref.finished
 	return will_wait
 
 func _button_exited() -> void:
 	if has_navigate_sounds:
-		run_sfx(AudioID.NAVIGATE)
+		run_sfx(AudioManager.MenuAudioID.NAVIGATE)
 
 func _on_pause_button_pressed():
 	if has_navigate_sounds:
-		run_sfx(AudioID.CONFIRM)
+		run_sfx(AudioManager.MenuAudioID.CONFIRM)
 	pause_control.release_focus()
 	pause(true)
