@@ -1,13 +1,5 @@
 ~ this_is_a_node_title
-Player: [[]]
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => this_is_a_node_title
-- End the conversation => END
-Nathan: For more information see the online documentation.
-
+Player: [[What's your story?| What's your alibi?]]
+Red: *sob* I was out shopping at Mobius's Mall when I bought some tomato seeds for Ms green to use, *sob* I rushed home after I was informed of my husbands murder *sob* I also saw yellow at the butchers shop.
+Player: [[Thanks for your time|Alright thanks]]
 => END
