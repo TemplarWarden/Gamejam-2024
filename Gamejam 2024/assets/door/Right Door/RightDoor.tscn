@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://buakfiocmqlay"]
+
+[ext_resource type="Script" path="res://assets/door/door.gd" id="1_88lrt"]
+[ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_i8ix0"]
+[ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_57f7y"]
+[ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_tw07x"]
+[ext_resource type="AudioStream" uid="uid://n5fgly3nkoe2" path="res://assets/door/door_open.wav" id="5_8dwlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34syw"]
+size = Vector2(160, 160)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tttig"]
+font = ExtResource("4_tw07x")
+font_size = 50
+
+[node name="RightDoor" type="Node2D" node_paths=PackedStringArray("owned_clickable", "owned_interactable", "reciever_node", "door_sound")]
+script = ExtResource("1_88lrt")
+owned_clickable = NodePath("clickable")
+owned_interactable = NodePath("interactable")
+reciever_node = NodePath("Destination")
+door_sound = NodePath("AudioStreamPlayer2D")
+
+[node name="clickable" parent="." node_paths=PackedStringArray("pop_up") instance=ExtResource("2_i8ix0")]
+pop_up = NodePath("../Hover")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="clickable"]
+shape = SubResource("RectangleShape2D_34syw")
+
+[node name="interactable" parent="." node_paths=PackedStringArray("pop_up") instance=ExtResource("3_57f7y")]
+pop_up = NodePath("../Hover")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
+shape = SubResource("RectangleShape2D_34syw")
+
+[node name="Hover" type="Node2D" parent="."]
+position = Vector2(0, -86)
+
+[node name="Label" type="Label" parent="Hover"]
+offset_right = 5.0
+offset_bottom = 23.0
+text = "!"
+label_settings = SubResource("LabelSettings_tttig")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8dwlw")
+bus = &"SFX"
+
+[node name="Destination" type="Node2D" parent="."]
+position = Vector2(-160, 0)

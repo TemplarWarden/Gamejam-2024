@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://d2w7mikda75ii"
+path="res://.godot/imported/enddoor.dialogue-0635749b3f6eeb2b2772ebf0ef75bee2.tres"
+
+[deps]
+
+source_file="res://assets/npc/enddoor/enddoor.dialogue"
+dest_files=["res://.godot/imported/enddoor.dialogue-0635749b3f6eeb2b2772ebf0ef75bee2.tres"]
+
+[params]
+
+defaults=true

@@ -72,7 +72,7 @@ func get_flag(key: String) -> int:
 	return flag_dictonary[key]
 
 func call_good_end() -> void:
-	pass
+	get_tree().change_scene_to_file("res://assets/scenes/endings/good_end_screen.tscn")
 
 func call_bad_end() -> void:
-	pass
+	get_tree().change_scene_to_file("res://assets/scenes/endings/bad_end_screen.tscn")

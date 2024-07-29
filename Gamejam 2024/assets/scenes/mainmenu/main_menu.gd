@@ -20,9 +20,9 @@ func _ready():
 	AudioManager.play_music(menu_music)
 	has_navigate_sounds = false
 	%PlayButton.grab_focus()
-	%ContinueButton.set_visible(GameManager.has_running_game)
-	if GameManager.has_running_game:
-		%ContinueButton.grab_focus()	
+	#%ContinueButton.set_visible(GameManager.has_running_game)
+	#if GameManager.has_running_game:
+	#	%ContinueButton.grab_focus()	
 	has_navigate_sounds = true
 
 func _on_continue_button_pressed():

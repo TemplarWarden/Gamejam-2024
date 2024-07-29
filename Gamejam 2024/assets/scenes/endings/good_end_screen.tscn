@@ -1,3 +1,59 @@
-[gd_scene format=3 uid="uid://wnahyqn08bei"]
+[gd_scene load_steps=3 format=3 uid="uid://wnahyqn08bei"]
+
+[ext_resource type="Theme" uid="uid://cw1l2t36qm1h4" path="res://assets/font/font_theme.tres" id="1_5r2jk"]
+[ext_resource type="Script" path="res://assets/scenes/endings/EndScreen.gd" id="1_14men"]
 
 [node name="GoodEndScreen" type="Node2D"]
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1440.0
+offset_bottom = 960.0
+script = ExtResource("1_14men")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 800.0
+offset_right = -300.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+theme = ExtResource("1_5r2jk")
+text = "MENU"
+
+[node name="QuitButton" type="Button" parent="Menu/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../PlayButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../PlayButton")
+theme = ExtResource("1_5r2jk")
+text = "QUIT"
+
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/PlayButton" to="Menu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/QuitButton" to="Menu" method="_on_quit_button_pressed"]
