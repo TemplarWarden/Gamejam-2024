@@ -1,6 +1,6 @@
 ~ start
 
-Player: [#hide=left][#side=left] Hmm, this is mr grey's corpse
+Player: [#hide=left][#side=left] Hmm, this is mr grey's corpse, The murder was about 9 Pm it seems.
 default: [#side=right] this portrait should be hidden
 	
 => END
