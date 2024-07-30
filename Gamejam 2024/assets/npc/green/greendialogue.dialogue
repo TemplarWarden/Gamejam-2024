@@ -1,6 +1,6 @@
 ~ this_is_a_node_title
-Player: [[What's your story?|What's your alibi?]]
-Green: I was pretty much gardening all day, but someone locked me out and I got sunburnt, I went into the Bedroom to put fresh flowers in a vase...
+Player: [#side=left][[What's your story?|What's your alibi?]]
+Green: [#side=right]I was pretty much gardening all day, but someone locked me out and I got sunburnt, I went into the Bedroom to put fresh flowers in a vase...
 Green: and then stumbled upon the Body
-Player: [[Thanks for your time|Alright thanks]] 
+Player: [#side=left][[Thanks for your time|Alright thanks]] 
 => END

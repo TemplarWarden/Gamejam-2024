@@ -1,12 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=10 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://assets/ui/balloon/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="2_etrsa"]
-[ext_resource type="Texture2D" uid="uid://bxqxt4sncycdi" path="res://assets/player/detectiveportrait1.png" id="2_tcp21"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://dqcgbahgqx7ay" path="res://assets/npc/orange/orangeportrait1.png" id="5_nxqqt"]
-[ext_resource type="AudioStream" uid="uid://cuiri72n8efvp" path="res://assets/npc/orange/conehead_dialogue.wav" id="7_jqaro"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -91,7 +88,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tcp21")
 
 [node name="PortraitRight" type="TextureRect" parent="Balloon"]
 unique_name_in_owner = true
@@ -101,7 +97,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_nxqqt")
 
 [node name="DialogueLeft" type="Control" parent="Balloon"]
 unique_name_in_owner = true
@@ -151,6 +146,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="Panel" type="Panel" parent="Balloon/DialogueRight"]
+visible = false
 clip_children = 2
 layout_mode = 2
 offset_left = 510.0
@@ -170,6 +166,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DialogueLabelRight" parent="Balloon/DialogueRight/MarginContainer" instance=ExtResource("2_a8ve6")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Dialogue..."
 
@@ -197,16 +194,11 @@ response_template = NodePath("ResponseExample")
 layout_mode = 2
 text = "Response example"
 
-[node name="LeftSpeaker" type="AudioStreamPlayer2D" parent="."]
+[node name="LeftSpeaker" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 480)
-bus = &"Dialogue FX"
 
-[node name="RightSpeaker" type="AudioStreamPlayer2D" parent="."]
+[node name="RightSpeaker" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(1440, 480)
-stream = ExtResource("7_jqaro")
-bus = &"Dialogue FX"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/DialogueLeft/MarginContainer/DialogueLabelLeft" to="." method="_on_dialogue_label_left_spoke"]

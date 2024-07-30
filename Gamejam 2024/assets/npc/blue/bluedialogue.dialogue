@@ -1,8 +1,8 @@
 ~ this_is_a_node_title
-Player: [[What's your alibi| What's your story]]
-Blue: I was at work on the day of the murder, I was in a meeting with Orange for most of the day discussing changes to his Annuity.
+Player: [#side=left][[What's your alibi| What's your story]]
+Blue: [#side=right]I was at work on the day of the murder, I was in a meeting with Orange for most of the day discussing changes to his Annuity.
 Blue: Mainly changing it to a lifetime duration. 
 Blue: This was done at Mr Grey's request. We talked until about 7:30 pm. 
 Blue: After the meeting Orange left and I had more meetings to attend to, I only came back once I had heard what happened.
-Player: [[Thanks for your time|Alright thanks]] 
+Player: [#side=left][[Thanks for your time|Alright thanks]] 
 => END

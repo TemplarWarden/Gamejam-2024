@@ -21,10 +21,10 @@ enum MenuAudioID {CONFIRM, NAVIGATE, CANCEL, BUMP}
 }
 
 var mastervolume: float = -6
-var musicvolume: float = -12
+var musicvolume: float = -24
 var musicFXvolume: float = 0
 var SFXvolume: float = 0
-var dialogueFXvolume: float = 8
+var dialogueFXvolume: float = 12
 
 var last_loop_track: AudioStreamWAV
 

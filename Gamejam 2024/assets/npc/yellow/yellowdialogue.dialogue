@@ -1,6 +1,6 @@
 ~ this_is_a_node_title
-Player: [[What's your story?| What's your alibi?]] 
-Nathan: I Was busy at the butchers shop, but saw Red at the mall with her friends, and rushed back home soon after she left.
-Player: [[Thanks for your time|Alright thanks]]
+Player: [#side=left][[What's your story?| What's your alibi?]] 
+Nathan: [#side=right]I Was busy at the butchers shop, but saw Red at the mall with her friends, and rushed back home soon after she left.
+Player: [#side=left][[Thanks for your time|Alright thanks]]
 
 => END

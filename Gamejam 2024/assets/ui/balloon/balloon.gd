@@ -17,19 +17,20 @@ extends CanvasLayer
 @onready var portrait_left: TextureRect = %PortraitLeft
 @onready var portrait_right: TextureRect = %PortraitRight
 
-@onready var left_audio: AudioStreamPlayer2D = %LeftSpeaker
-@onready var right_audio: AudioStreamPlayer2D = %RightSpeaker
+@onready var left_audio: AudioStreamPlayer = %LeftSpeaker
+@onready var right_audio: AudioStreamPlayer = %RightSpeaker
 
 #active dialogue_label
 @onready var dialogue_label: DialogueLabel = dialogue_label_left
 @onready var portrait: TextureRect = portrait_left
 @onready var containter: Control = container_left
-@onready var audio: AudioStreamPlayer2D = left_audio
+@onready var audio: AudioStreamPlayer = left_audio
 
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 var hide_left: bool = false
 var hide_right: bool = false
+
 
 ## The dialogue resource
 var resource: DialogueResource

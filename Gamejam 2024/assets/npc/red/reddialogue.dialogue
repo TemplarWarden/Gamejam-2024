@@ -1,6 +1,6 @@
 ~ this_is_a_node_title
-Player: [[What's your story?| What's your alibi?]]
-Red: *sob* I was out shopping at Mobius's Mall when I bought some tomato seeds for Ms green to use 
+Player: [#side=left][[What's your story?| What's your alibi?]]
+Red: [#side=right]*sob* I was out shopping at Mobius's Mall when I bought some tomato seeds for Ms green to use 
 Red: *sob* I rushed home after I was informed of my husbands murder *sob* I also saw yellow at the butchers shop.
-Player: [[Thanks for your time|Alright thanks]]
+Player: [#side=left][[Thanks for your time|Alright thanks]]
 => END
