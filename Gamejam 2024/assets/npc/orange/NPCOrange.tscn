@@ -8,10 +8,10 @@
 [ext_resource type="SpriteFrames" uid="uid://bvbe5eqw812d5" path="res://assets/npc/orange/orange.tres" id="5_20odc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5w8"]
-size = Vector2(188.25, 118.5)
+size = Vector2(274, 168)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ihen"]
-size = Vector2(292, 114)
+size = Vector2(438, 172)
 
 [sub_resource type="LabelSettings" id="LabelSettings_a6pe0"]
 font = ExtResource("4_x8uwa")
@@ -28,23 +28,24 @@ npcdialogue = ExtResource("2_7gud5")
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
-position = Vector2(-47.125, 6.25)
+position = Vector2(-75, 15)
 shape = SubResource("RectangleShape2D_um5w8")
 
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_siioe")]
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
-position = Vector2(-47.125, 6.25)
+position = Vector2(-75, 15)
 shape = SubResource("RectangleShape2D_um5w8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/StaticBody2D"]
-position = Vector2(0, 8)
+position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_3ihen")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("5_20odc")
 autoplay = "default"
 

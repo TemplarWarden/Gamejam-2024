@@ -8,14 +8,14 @@
 [ext_resource type="SpriteFrames" uid="uid://bvaelh2cyydxs" path="res://assets/npc/yellow/yellow.tres" id="5_uutql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbl7f"]
-size = Vector2(73, 183)
+size = Vector2(96, 267)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v4v0b"]
-radius = 51.0
-height = 120.0
+radius = 65.0
+height = 194.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qor50"]
-size = Vector2(89, 49)
+size = Vector2(146.5, 51.75)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c7otx"]
 font = ExtResource("4_lbt2c")
@@ -32,51 +32,52 @@ npcdialogue = ExtResource("2_qwk13")
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/clickable"]
-position = Vector2(-2.5, 14.5)
+position = Vector2(4, 25.5)
 shape = SubResource("RectangleShape2D_bbl7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
-position = Vector2(-52, -4)
+position = Vector2(-70, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v4v0b")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="NPC/clickable"]
-position = Vector2(42, 44.5)
+position = Vector2(61, 73.875)
 shape = SubResource("RectangleShape2D_qor50")
 
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_ayr3k")]
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/interactable"]
-position = Vector2(-2.5, 14.5)
+position = Vector2(4, 25.5)
 shape = SubResource("RectangleShape2D_bbl7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
-position = Vector2(-52, -4)
+position = Vector2(-70, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v4v0b")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="NPC/interactable"]
-position = Vector2(42, 44.5)
+position = Vector2(61, 73.875)
 shape = SubResource("RectangleShape2D_qor50")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/StaticBody2D"]
-position = Vector2(-2.5, 14.5)
+position = Vector2(4, 25.5)
 shape = SubResource("RectangleShape2D_bbl7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/StaticBody2D"]
-position = Vector2(-52, -4)
+position = Vector2(-70, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v4v0b")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="NPC/StaticBody2D"]
-position = Vector2(42, 44.5)
+position = Vector2(61, 73.875)
 shape = SubResource("RectangleShape2D_qor50")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
 position = Vector2(-11, -1)
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("5_uutql")
 autoplay = "default"
 
@@ -84,7 +85,8 @@ autoplay = "default"
 position = Vector2(-3, -137)
 
 [node name="Label" type="Label" parent="NPC/Node2D"]
-offset_right = 5.0
-offset_bottom = 23.0
+offset_top = -22.0
+offset_right = 9.0
+offset_bottom = 29.0
 text = "!"
 label_settings = SubResource("LabelSettings_c7otx")

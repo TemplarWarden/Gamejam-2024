@@ -32,7 +32,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_1lyiy")]
 unique_name_in_owner = true
-position = Vector2(-408, -14)
+position = Vector2(-426, -61)
 movement_speed = 200.0
 
 [node name="Room0 (Main Hall)" type="Node2D" parent="."]
@@ -75,6 +75,7 @@ target_door = NodePath("../../Room2 (Bedroom)/DownDoor")
 my_room = NodePath("..")
 
 [node name="GreyCorpse" parent="Room0 (Main Hall)" instance=ExtResource("17_wk8yx")]
+position = Vector2(-30, -2)
 
 [node name="RightDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_ylbta")]
 position = Vector2(600, 0)

@@ -25,6 +25,7 @@ func _process(delta):
 func _physics_process(delta):
 	if position.distance_to(target_move) > 0:
 		velocity = position.direction_to((target_move)) * movement_speed
+		#play movement animations
 		move_and_slide()
 	if position.distance_to(target_move) < movement_speed*delta:
 		target_move = position
@@ -35,7 +36,7 @@ func move(delta):
 		var movement = Input.get_vector("c_left", "c_right", "c_up", "c_down")
 		if movement.length() > 0:
 			target_move = position + movement*movement_speed * delta
-			#play walk animations
+			has_interact_target = false
 
 #reads input to set movement to location
 func move_to(target_position):
@@ -74,9 +75,7 @@ func send_interact(object):
 
 #recieve target from with object upon click
 func recieve_target(target: Clickable):
-		print_debug(target)
 		target_object = target
-		print_debug(target_object)
 		has_interact_target = true
 		move_to(target_object.node_owner.global_position)
 		#interact check due to potentially being in interact range already

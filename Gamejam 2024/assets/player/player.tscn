@@ -4,11 +4,12 @@
 [ext_resource type="SpriteFrames" uid="uid://ccy38fy47wo8q" path="res://assets/player/player.tres" id="2_dlhn8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uuagi"]
-radius = 40.0
-height = 120.0
+radius = 53.0
+height = 106.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6fmwq"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tt5q3"]
 radius = 80.0
+height = 160.0
 
 [node name="Player" type="CharacterBody2D"]
 top_level = true
@@ -18,20 +19,22 @@ script = ExtResource("1_jh1uy")
 movement_speed = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_dlhn8")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 32)
+position = Vector2(9, 77)
 shape = SubResource("CapsuleShape2D_uuagi")
 
 [node name="Interaction Area" type="Area2D" parent="."]
-position = Vector2(6, 32)
+position = Vector2(9, 77)
 collision_layer = 2
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Area"]
-shape = SubResource("CircleShape2D_6fmwq")
+shape = SubResource("CapsuleShape2D_tt5q3")
 
 [connection signal="area_entered" from="Interaction Area" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction Area" to="." method="_on_interaction_area_area_exited"]

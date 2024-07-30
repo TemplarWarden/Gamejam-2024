@@ -26,7 +26,7 @@ var player_dict: Dictionary = {
 }
 var blue_dict: Dictionary = {
 	DICVALUES.ID: "blue",
-	DICVALUES.PORTRAIT: "res://Graphics (Placeholder)/placeholder portrait.png",
+	DICVALUES.PORTRAIT: "res://assets/npc/blue/blueportrait1.png",
 	DICVALUES.TEXTCOLOR: Color.BLUE,
 	DICVALUES.TYPESOUND: "res://assets/npc/blue/bluedialogue.wav",
 	DICVALUES.TYPESPEED: 0.05,

@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtyw0skcpr8bk"]
+[gd_scene load_steps=9 format=3 uid="uid://dtyw0skcpr8bk"]
 
 [ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_llwyn"]
 [ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_5saib"]
 [ext_resource type="Resource" uid="uid://r07sr0n3lyex" path="res://assets/npc/greycorpse/corpsedialogue.dialogue" id="2_ujdsq"]
 [ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_3rh43"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_bs6a4"]
+[ext_resource type="Texture2D" uid="uid://da4r0rjq25w4s" path="res://assets/npc/greycorpse/trafficconesthing.png" id="5_a36b8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s5r2"]
-size = Vector2(360, 200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxfsc"]
+size = Vector2(538.25, 289)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ikt1"]
 font = ExtResource("4_bs6a4")
@@ -24,20 +25,28 @@ npcdialogue = ExtResource("2_ujdsq")
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
-shape = SubResource("RectangleShape2D_3s5r2")
+position = Vector2(11.125, -16.5)
+shape = SubResource("RectangleShape2D_nxfsc")
 
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_3rh43")]
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
-shape = SubResource("RectangleShape2D_3s5r2")
+position = Vector2(11.125, -16.5)
+shape = SubResource("RectangleShape2D_nxfsc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NPC/StaticBody2D"]
+position = Vector2(2, 2)
+polygon = PackedVector2Array(-258, 125, -200, -155, 0, -119, 209, -160, 255, 1, -133, -9, -152, 126)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_a36b8")
 
 [node name="Node2D" type="Node2D" parent="NPC"]
-position = Vector2(-3, -137)
+position = Vector2(-3, -168)
 
 [node name="Label" type="Label" parent="NPC/Node2D"]
 offset_right = 5.0

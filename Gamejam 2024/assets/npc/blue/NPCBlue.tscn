@@ -1,21 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://ff0ap54malam"]
+[gd_scene load_steps=10 format=3 uid="uid://ff0ap54malam"]
 
 [ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_8sti8"]
 [ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_1mxl1"]
 [ext_resource type="Resource" uid="uid://jtbdrmc7edqf" path="res://assets/npc/blue/bluedialogue.dialogue" id="2_kbqky"]
 [ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_bkgn6"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_ndrkt"]
+[ext_resource type="SpriteFrames" uid="uid://x7l3g28jtogb" path="res://assets/npc/blue/blue.tres" id="5_43mhd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7v1w"]
-radius = 60.0
-height = 180.0
+radius = 63.0
+height = 256.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juw3t"]
+radius = 73.0
+height = 198.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ejpst"]
 font = ExtResource("4_ndrkt")
 font_size = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b71g"]
-bg_color = Color(0.0674278, 0.622616, 1, 1)
 
 [node name="NpcBlue" type="Node2D"]
 
@@ -28,37 +30,48 @@ npcdialogue = ExtResource("2_kbqky")
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/clickable"]
-position = Vector2(0, 10)
+position = Vector2(22, -9)
 shape = SubResource("CapsuleShape2D_h7v1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
+position = Vector2(-31, 62)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_juw3t")
 
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_bkgn6")]
 pop_up = NodePath("../Node2D")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/interactable"]
-position = Vector2(0, 10)
+position = Vector2(22, -9)
 shape = SubResource("CapsuleShape2D_h7v1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
+position = Vector2(-31, 62)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_juw3t")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/StaticBody2D"]
-position = Vector2(0, 10)
+position = Vector2(22, -9)
 shape = SubResource("CapsuleShape2D_h7v1w")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/StaticBody2D"]
+position = Vector2(-31, 62)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_juw3t")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("5_43mhd")
+autoplay = "default"
+metadata/_edit_lock_ = true
 
 [node name="Node2D" type="Node2D" parent="NPC"]
-position = Vector2(-3, -137)
+position = Vector2(30, -171)
 
 [node name="Label" type="Label" parent="NPC/Node2D"]
 offset_right = 5.0
 offset_bottom = 23.0
 text = "!"
 label_settings = SubResource("LabelSettings_ejpst")
-
-[node name="Panel" type="Panel" parent="NPC"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4b71g")
