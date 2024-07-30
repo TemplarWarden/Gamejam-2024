@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ccy38fy47wo8q"]
+
+[ext_resource type="Texture2D" uid="uid://dk5wxlhg6o8dn" path="res://assets/player/detectiveidlesprite.png" id="1_0481y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euhwa"]
+atlas = ExtResource("1_0481y")
+region = Rect2(0, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pk8d"]
+atlas = ExtResource("1_0481y")
+region = Rect2(152, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e4vk"]
+atlas = ExtResource("1_0481y")
+region = Rect2(304, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmojh"]
+atlas = ExtResource("1_0481y")
+region = Rect2(456, 0, 152, 220)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euhwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pk8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e4vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmojh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
