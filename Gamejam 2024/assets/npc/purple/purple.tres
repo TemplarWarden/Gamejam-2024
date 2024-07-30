@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dlhpupdf0l1j6"]
+
+[ext_resource type="Texture2D" uid="uid://b6j5lihjkxdlg" path="res://assets/npc/purple/purplespritesheet.png" id="1_m7xwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6ou6"]
+atlas = ExtResource("1_m7xwh")
+region = Rect2(0, 0, 188, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijdr2"]
+atlas = ExtResource("1_m7xwh")
+region = Rect2(188, 0, 188, 180)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6ou6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijdr2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

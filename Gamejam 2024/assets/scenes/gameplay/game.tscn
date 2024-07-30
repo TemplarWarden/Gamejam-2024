@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=34 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
 [ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
@@ -25,10 +25,14 @@
 [ext_resource type="PackedScene" uid="uid://dyjx3yg72epow" path="res://assets/npc/purple/NPCPurple.tscn" id="16_htvjh"]
 [ext_resource type="AudioStream" uid="uid://dwl03lxjip6kx" path="res://audio/music/green.wav" id="17_i70cj"]
 [ext_resource type="PackedScene" uid="uid://dtyw0skcpr8bk" path="res://assets/npc/greycorpse/GreyCorpse.tscn" id="17_wk8yx"]
+[ext_resource type="Texture2D" uid="uid://capm0vrhvjlf3" path="res://assets/rooms/bathroombackground2.png" id="18_dn04h"]
 [ext_resource type="PackedScene" uid="uid://b2333fxcvo71a" path="res://assets/door/Left Door/LeftDoor.tscn" id="18_mpkgt"]
 [ext_resource type="Texture2D" uid="uid://m6jsst6k0yaf" path="res://assets/sprites/tv.png" id="23_apec1"]
 [ext_resource type="Texture2D" uid="uid://d0cg3ogyrfjik" path="res://assets/rooms/wizardstudyfloor1.png" id="24_npv68"]
 [ext_resource type="Texture2D" uid="uid://b5ekgsysmwyww" path="res://assets/sprites/beertable.png" id="24_obf7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3kw"]
+size = Vector2(114, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk2g2"]
 size = Vector2(102, 97.3333)
@@ -158,37 +162,40 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Room3 (Transition Hall)"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_dn04h")
 metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room3 (Transition Hall)" instance=ExtResource("5_wpasl")]
 metadata/_edit_lock_ = true
 
 [node name="NpcPurple" parent="Room3 (Transition Hall)" instance=ExtResource("16_htvjh")]
-position = Vector2(347, 190)
+position = Vector2(418, 74)
 
 [node name="LeftDoor" parent="Room3 (Transition Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("18_mpkgt")]
-position = Vector2(-583, 2)
+position = Vector2(-600, 2)
 target_door = NodePath("../../Room0 (Main Hall)/RightDoor")
 my_room = NodePath("..")
+metadata/_edit_lock_ = true
 
 [node name="RightDoor" parent="Room3 (Transition Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_ylbta")]
-position = Vector2(583, -207)
+position = Vector2(600, -195)
 target_door = NodePath("../../Room6 (Green House)/LeftDoor")
 my_room = NodePath("..")
+metadata/_edit_lock_ = true
 
-[node name="Panel2" type="Panel" parent="Room3 (Transition Hall)"]
-offset_left = 507.0
-offset_top = -281.0
-offset_right = 663.0
-offset_bottom = -128.0
-mouse_filter = 2
+[node name="StaticBody2D" type="StaticBody2D" parent="Room3 (Transition Hall)"]
 
-[node name="Panel" type="Panel" parent="Room3 (Transition Hall)"]
-offset_left = -662.0
-offset_top = -74.0
-offset_right = -506.0
-offset_bottom = 79.0
-mouse_filter = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3 (Transition Hall)/StaticBody2D"]
+position = Vector2(92, 76)
+shape = SubResource("RectangleShape2D_ak3kw")
+
+[node name="Walls2" type="Node2D" parent="Room3 (Transition Hall)"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room3 (Transition Hall)/Walls2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room3 (Transition Hall)/Walls2/StaticBody2D"]
+polygon = PackedVector2Array(-144, 191, -95, 191, -94, 98, 529, 95, 530, 350, 580, 350, 580, -93, -144, -93)
 
 [node name="Room4 (Living Room)" type="Node2D" parent="."]
 position = Vector2(720, 960)

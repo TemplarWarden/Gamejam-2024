@@ -36,7 +36,7 @@ var green_dict: Dictionary = {
 	DICVALUES.PORTRAIT: "res://Graphics (Placeholder)/placeholder portrait.png",
 	DICVALUES.TEXTCOLOR: Color.GREEN,
 	DICVALUES.TYPESOUND: "res://assets/npc/green/greendialogue.wav",
-	DICVALUES.TYPESPEED: 0.05,
+	DICVALUES.TYPESPEED: 0.08,
 }
 var orange_dict: Dictionary = {
 	DICVALUES.ID: "orange",
@@ -47,7 +47,7 @@ var orange_dict: Dictionary = {
 }
 var purple_dict: Dictionary = {
 	DICVALUES.ID: "purple",
-	DICVALUES.PORTRAIT: "res://Graphics (Placeholder)/placeholder portrait.png",
+	DICVALUES.PORTRAIT: "res://assets/npc/purple/purpleportrait2.png",
 	DICVALUES.TEXTCOLOR: Color.PURPLE,
 	DICVALUES.TYPESOUND: "res://assets/npc/purple/purpledialogue.wav",
 	DICVALUES.TYPESPEED: 0.05,
