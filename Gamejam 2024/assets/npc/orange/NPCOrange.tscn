@@ -1,21 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvpglm4het5et"]
+[gd_scene load_steps=10 format=3 uid="uid://bvpglm4het5et"]
 
 [ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_0jcui"]
 [ext_resource type="PackedScene" uid="uid://cvvuwojtihxim" path="res://assets/components/clickable.tscn" id="2_3h057"]
 [ext_resource type="Resource" uid="uid://dobofxqnbdrev" path="res://assets/npc/orange/orangedialogue.dialogue" id="2_7gud5"]
 [ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_siioe"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_x8uwa"]
+[ext_resource type="SpriteFrames" uid="uid://bvbe5eqw812d5" path="res://assets/npc/orange/orange.tres" id="5_20odc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aves5"]
-radius = 60.0
-height = 180.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um5w8"]
+size = Vector2(188.25, 118.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ihen"]
+size = Vector2(292, 114)
 
 [sub_resource type="LabelSettings" id="LabelSettings_a6pe0"]
 font = ExtResource("4_x8uwa")
 font_size = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvik4"]
-bg_color = Color(0.734313, 0.572622, 0.244932, 1)
 
 [node name="NpcOrange" type="Node2D"]
 
@@ -27,38 +27,32 @@ npcdialogue = ExtResource("2_7gud5")
 [node name="clickable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("2_3h057")]
 pop_up = NodePath("../Node2D")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/clickable"]
-position = Vector2(0, 10)
-shape = SubResource("CapsuleShape2D_aves5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/clickable"]
+position = Vector2(-47.125, 6.25)
+shape = SubResource("RectangleShape2D_um5w8")
 
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_siioe")]
 pop_up = NodePath("../Node2D")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/interactable"]
-position = Vector2(0, 10)
-shape = SubResource("CapsuleShape2D_aves5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/interactable"]
+position = Vector2(-47.125, 6.25)
+shape = SubResource("RectangleShape2D_um5w8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/StaticBody2D"]
-position = Vector2(0, 10)
-shape = SubResource("CapsuleShape2D_aves5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/StaticBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_3ihen")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+sprite_frames = ExtResource("5_20odc")
+autoplay = "default"
 
 [node name="Node2D" type="Node2D" parent="NPC"]
-position = Vector2(-3, -137)
+position = Vector2(0, -110)
 
 [node name="Label" type="Label" parent="NPC/Node2D"]
 offset_right = 5.0
 offset_bottom = 23.0
 text = "!"
 label_settings = SubResource("LabelSettings_a6pe0")
-
-[node name="Panel" type="Panel" parent="NPC"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fvik4")
