@@ -7,7 +7,8 @@ Player: Am I ready to make an accusation?
 	=> END
 ~ continue
 
-Player: [#hide=right][#side=left] [do AudioManager.music_waiter()][do AudioManager.play_loaded_music("trialtense")] Who is reponsible? 
+Player: [#hide=right][#side=left] [do AudioManager.music_waiter()][do AudioManager.play_loaded_music("trialtense")] Who is reponsible? [do AudioManager.play_loaded_music("trialtense")] 
+
 - Yellow
 	=> badend
 - Red

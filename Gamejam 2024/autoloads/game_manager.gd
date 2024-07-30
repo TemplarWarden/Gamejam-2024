@@ -73,6 +73,8 @@ func get_flag(key: String) -> int:
 
 func call_good_end() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/endings/good_end_screen.tscn")
+	AudioManager.play_loaded_music("goodend")
 
 func call_bad_end() -> void:
 	get_tree().change_scene_to_file("res://assets/scenes/endings/bad_end_screen.tscn")
+	AudioManager.play_loaded_music("badend")

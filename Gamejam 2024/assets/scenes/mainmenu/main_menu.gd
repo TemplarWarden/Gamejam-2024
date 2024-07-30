@@ -26,7 +26,7 @@ func _on_play_button_pressed():
 	has_navigate_sounds = false
 	GameManager.reset_manager()
 	GameManager.has_running_game = true
-	AudioManager.play_music(game_music)
+	AudioManager.play_loaded_music("overworld")
 	run_sfx(AudioManager.MenuAudioID.CONFIRM)
 	change_scene()
 
