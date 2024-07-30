@@ -1,6 +1,11 @@
 ~ start
 
-Player: [#hide=left][#side=left] Hmm, this is mr grey's corpse, The murder was about 9 Pm it seems.
-default: [#side=right] this portrait should be hidden
+if [GameManager.get_flag("corpse discovered") == 0]
+	do [AudioManager.play_music(load("res://audio/sfx/bodydiscovered.wav"), false)]
+	Player: [#hide=right][#side=left] This must be the death I've been called to investigate.
+	do [GameManager.set_flag("corpse discovered") == 1]
+elif [GameManager.get_flag("corpse discovered") == 1]
+	Player: [#hide=right][#side=left] Hmm, this is mr grey's corpse
+Player: TEXT goes here
 	
 => END

@@ -11,6 +11,15 @@ enum MenuAudioID {CONFIRM, NAVIGATE, CANCEL, BUMP}
 	MenuAudioID.BUMP: "res://audio/sfx/bumpsfx.wav"
 }
 
+@export var musictracks = {
+	"menu": preload("res://audio/music/themedraft.wav"),
+	"overworld": preload("res://audio/music/overworld.wav"),
+	"trialtense": preload("res://audio/music/trialtense.wav"),
+	"culpritsting": preload("res://audio/music/culprit_decision_sting.wav"),
+	"goodend": preload("res://audio/music/goodend.wav"),
+	"badend": preload("res://audio/music/badend.wav")
+}
+
 var mastervolume: float = -6
 var musicvolume: float = -12
 var musicFXvolume: float = 0
@@ -29,6 +38,10 @@ func set_volume():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music FX"), musicFXvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), SFXvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialogue FX"), dialogueFXvolume)
+
+func play_loaded_music(music: String, loop: bool = true, volume: float = 0) -> void:
+	var track = musictracks[music]
+	play_music(track, loop, volume)
 
 func play_music(music: AudioStreamWAV, loop: bool = true, volume: float = 0) -> void:
 	if stream == music:
@@ -58,3 +71,7 @@ func play_sound_effect_instance(path: String, volume: float = 0) -> AudioStreamP
 func music_loop_catcher(track: AudioStreamWAV) -> void:
 	await finished
 	play_music(track)
+
+func music_waiter() -> bool:
+	await finished
+	return true

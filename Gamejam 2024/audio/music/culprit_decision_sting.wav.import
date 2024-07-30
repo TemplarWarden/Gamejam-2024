@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://0rbeh8jxnm4y"
-path="res://.godot/imported/culprit_decision_sting.wav-13ed6f530f09c7dcd2191ba829d1fb90.sample"
+path="res://.godot/imported/culprit_decision_sting.wav-744fcb1c56768866749f1a0b45acfcdb.sample"
 
 [deps]
 
-source_file="res://audio/sfx/culprit_decision_sting.wav"
-dest_files=["res://.godot/imported/culprit_decision_sting.wav-13ed6f530f09c7dcd2191ba829d1fb90.sample"]
+source_file="res://audio/music/culprit_decision_sting.wav"
+dest_files=["res://.godot/imported/culprit_decision_sting.wav-744fcb1c56768866749f1a0b45acfcdb.sample"]
 
 [params]
 
