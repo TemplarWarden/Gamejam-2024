@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://wnahyqn08bei"]
+[gd_scene load_steps=5 format=3 uid="uid://wnahyqn08bei"]
 
 [ext_resource type="Theme" uid="uid://cw1l2t36qm1h4" path="res://assets/font/font_theme.tres" id="1_5r2jk"]
 [ext_resource type="Script" path="res://assets/scenes/endings/EndScreen.gd" id="1_14men"]
+[ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="3_opk2n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7qsgv"]
+font = ExtResource("3_opk2n")
+font_size = 200
 
 [node name="GoodEndScreen" type="Node2D"]
 
@@ -54,6 +59,15 @@ focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
 theme = ExtResource("1_5r2jk")
 text = "QUIT"
+
+[node name="Label" type="Label" parent="Menu"]
+offset_right = 1431.0
+offset_bottom = 569.0
+theme_override_fonts/font = ExtResource("3_opk2n")
+text = "GOOD END"
+label_settings = SubResource("LabelSettings_7qsgv")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/PlayButton" to="Menu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/HBoxContainer/QuitButton" to="Menu" method="_on_quit_button_pressed"]

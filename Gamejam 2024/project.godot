@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Gamejam 2024"
+config/name="An Estranged Estate"
 run/main_scene="res://assets/scenes/mainmenu/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"

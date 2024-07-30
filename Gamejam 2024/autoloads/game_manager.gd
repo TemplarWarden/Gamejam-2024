@@ -5,38 +5,11 @@ var flag_dictonary : Dictionary = {}
 var new_game: bool = true
 var has_running_game: bool = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func bind_player(player: Player) -> void:
 	player_reference = player
 
-func unbind_player(player: Player) -> bool:
+func unbind_player(_player: Player) -> bool:
 	player_reference = null
-	return true
-
-func bind_NPObject(object: NPObject) -> void:
-	#object_array.append(object)
-	add_listener(object)
-	
-func unbind_NPObject(object: NPObject) -> bool:
-	#for N in object_array:
-		#if N == object:
-			#remove_listner(object)
-			#object_array.remove_at(N.get_index())
-			#return true
-	return false
-
-func _send_to_player(object: NPObject) -> void:
-	#print_debug("recieve")
-	player_reference._recieve_target(object)
-
-func add_listener(object: NPObject) -> void:
-	object.connect("_on_targeted", _send_to_player)
-
-func remove_listner(object: NPObject) -> bool:
-	object.disconnect("_on_targeted", _send_to_player)
 	return true
 
 func toggle_player_move(args: bool) -> void:

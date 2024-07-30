@@ -1,11 +1,11 @@
 ~ start
 
-if [GameManager.get_flag("corpse discovered") == 0]
-	do [AudioManager.play_music(load("res://audio/sfx/bodydiscovered.wav"), false)]
-	Player: [#hide=right][#side=left] This must be the death I've been called to investigate.
-	do [GameManager.set_flag("corpse discovered") == 1]
-elif [GameManager.get_flag("corpse discovered") == 1]
+if GameManager.get_flag("corpse discovered") == 0
+	do [AudioManager.play_loaded_music("corpse", false)]
+	Player: [#hide=right][#side=left][do AudioManager.music_waiter()]This must be the death I've been called to investigate.
+	do [GameManager.set_flag("corpse discovered", 1)]
+elif GameManager.get_flag("corpse discovered") == 1
 	Player: [#hide=right][#side=left] Hmm, this is mr grey's corpse
-Player: TEXT goes here
+Player: It looks like he died of some sort of poison at around 9 am
 	
 => END

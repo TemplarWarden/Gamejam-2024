@@ -74,7 +74,6 @@ target_door = NodePath("../../Room2 (Bedroom)/DownDoor")
 my_room = NodePath("..")
 
 [node name="GreyCorpse" parent="Room0 (Main Hall)" instance=ExtResource("17_wk8yx")]
-position = Vector2(-51, 5)
 
 [node name="RightDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_ylbta")]
 position = Vector2(587, -2)
@@ -167,6 +166,20 @@ position = Vector2(583, -207)
 target_door = NodePath("../../Room6 (Green House)/LeftDoor")
 my_room = NodePath("..")
 
+[node name="Panel2" type="Panel" parent="Room3 (Transition Hall)"]
+offset_left = 507.0
+offset_top = -281.0
+offset_right = 663.0
+offset_bottom = -128.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Room3 (Transition Hall)"]
+offset_left = -662.0
+offset_top = -74.0
+offset_right = -506.0
+offset_bottom = 79.0
+mouse_filter = 2
+
 [node name="Room4 (Living Room)" type="Node2D" parent="."]
 position = Vector2(720, 960)
 script = ExtResource("2_knwnv")
@@ -219,6 +232,13 @@ my_room = NodePath("..")
 [node name="NpcBlue" parent="Room5 (Study)" instance=ExtResource("14_74gup")]
 position = Vector2(-305, 56)
 
+[node name="Panel" type="Panel" parent="Room5 (Study)"]
+offset_left = 309.0
+offset_top = -371.0
+offset_right = 465.0
+offset_bottom = -218.0
+mouse_filter = 2
+
 [node name="Room6 (Green House)" type="Node2D" parent="."]
 position = Vector2(2880, -480)
 script = ExtResource("2_knwnv")
@@ -243,3 +263,10 @@ position = Vector2(312, 54)
 position = Vector2(-584, 247)
 target_door = NodePath("../../Room3 (Transition Hall)/RightDoor")
 my_room = NodePath("..")
+
+[node name="Panel" type="Panel" parent="Room6 (Green House)"]
+offset_left = -660.0
+offset_top = 172.0
+offset_right = -504.0
+offset_bottom = 325.0
+mouse_filter = 2

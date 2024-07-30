@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ysorktxshqjl"]
+[gd_scene load_steps=9 format=3 uid="uid://ysorktxshqjl"]
 
 [ext_resource type="PackedScene" uid="uid://bexv052vwvk5b" path="res://assets/npc/npc.tscn" id="1_lvvge"]
 [ext_resource type="Resource" uid="uid://cejnq62nn3r8h" path="res://assets/npc/yellow/yellowdialogue.dialogue" id="2_qwk13"]
@@ -6,9 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://bf3cd3c70hu3t" path="res://assets/components/interactable.tscn" id="3_ayr3k"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="4_lbt2c"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_imxh4"]
+radius = 60.0
+height = 180.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_c7otx"]
 font = ExtResource("4_lbt2c")
 font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uoku"]
+bg_color = Color(0.876603, 0.801991, 0.105121, 1)
 
 [node name="NpcYellow" type="Node2D"]
 
@@ -20,10 +27,22 @@ npcdialogue = ExtResource("2_qwk13")
 [node name="clickable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("2_rppnh")]
 pop_up = NodePath("../Node2D")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/clickable"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_imxh4")
+
 [node name="interactable" parent="NPC" node_paths=PackedStringArray("pop_up") instance=ExtResource("3_ayr3k")]
 pop_up = NodePath("../Node2D")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/interactable"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_imxh4")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="NPC"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC/StaticBody2D"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_imxh4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
 
@@ -35,3 +54,11 @@ offset_right = 5.0
 offset_bottom = 23.0
 text = "!"
 label_settings = SubResource("LabelSettings_c7otx")
+
+[node name="Panel" type="Panel" parent="NPC"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3uoku")

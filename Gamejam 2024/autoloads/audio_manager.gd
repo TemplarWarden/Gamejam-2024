@@ -17,7 +17,8 @@ enum MenuAudioID {CONFIRM, NAVIGATE, CANCEL, BUMP}
 	"trialtense": preload("res://audio/music/trialtense.wav"),
 	"culpritsting": preload("res://audio/music/culprit_decision_sting.wav"),
 	"goodend": preload("res://audio/music/goodend.wav"),
-	"badend": preload("res://audio/music/badend.wav")
+	"badend": preload("res://audio/music/badend.wav"),
+	"corpse": preload("res://audio/sfx/bodydiscovered.wav")
 }
 
 var mastervolume: float = -6
