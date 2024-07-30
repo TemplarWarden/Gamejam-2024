@@ -1,9 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=28 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
 [ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
 [ext_resource type="AudioStream" uid="uid://ynltavb8w7b1" path="res://audio/music/overworld.wav" id="3_j4co1"]
-[ext_resource type="Texture2D" uid="uid://dx2l7f3jwq2dx" path="res://assets/rooms/mainhallfloor.png" id="4_j1g0m"]
+[ext_resource type="Texture2D" uid="uid://dwipbbtxqik1l" path="res://assets/rooms/main hall floor1.png" id="4_tucft"]
 [ext_resource type="PackedScene" uid="uid://dxaypel6dw601" path="res://assets/components/walls.tscn" id="5_wpasl"]
 [ext_resource type="PackedScene" uid="uid://bdsh276cfu3aq" path="res://assets/npc/red/NPCRed.tscn" id="7_0uevp"]
 [ext_resource type="AudioStream" uid="uid://dskre78vklw3s" path="res://audio/music/yellerbebber.wav" id="8_1inof"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://dwl03lxjip6kx" path="res://audio/music/green.wav" id="17_i70cj"]
 [ext_resource type="PackedScene" uid="uid://dtyw0skcpr8bk" path="res://assets/npc/greycorpse/GreyCorpse.tscn" id="17_wk8yx"]
 [ext_resource type="PackedScene" uid="uid://b2333fxcvo71a" path="res://assets/door/Left Door/LeftDoor.tscn" id="18_mpkgt"]
+[ext_resource type="Texture2D" uid="uid://d0cg3ogyrfjik" path="res://assets/rooms/wizardstudyfloor1.png" id="24_npv68"]
 
 [node name="Game" type="Node2D"]
 
@@ -47,41 +48,41 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Room0 (Main Hall)"]
 scale = Vector2(1.5, 1.501)
-texture = ExtResource("4_j1g0m")
+texture = ExtResource("4_tucft")
 metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room0 (Main Hall)" instance=ExtResource("5_wpasl")]
 metadata/_edit_lock_ = true
 
 [node name="DownDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("8_g8q2v")]
-position = Vector2(-340, 341)
+position = Vector2(-335, 340)
 target_door = NodePath("../../Room5 (Study)/UpDoor")
 my_room = NodePath("..")
 
 [node name="DownDoor2" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("8_g8q2v")]
-position = Vector2(338, 344)
+position = Vector2(335, 340)
 target_door = NodePath("../../Room4 (Living Room)/UpDoor")
 my_room = NodePath("..")
 
 [node name="UpDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_0keg8")]
-position = Vector2(-330, -298)
+position = Vector2(-335, -300)
 target_door = NodePath("../../Room1 (Dining Hall)/DownDoor3")
 my_room = NodePath("..")
 
 [node name="UpDoor2" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_0keg8")]
-position = Vector2(336, -295)
+position = Vector2(335, -300)
 target_door = NodePath("../../Room2 (Bedroom)/DownDoor")
 my_room = NodePath("..")
 
 [node name="GreyCorpse" parent="Room0 (Main Hall)" instance=ExtResource("17_wk8yx")]
 
 [node name="RightDoor" parent="Room0 (Main Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_ylbta")]
-position = Vector2(587, -2)
+position = Vector2(600, 0)
 target_door = NodePath("../../Room3 (Transition Hall)/LeftDoor")
 my_room = NodePath("..")
 
 [node name="Enddoor" parent="Room0 (Main Hall)" instance=ExtResource("10_jacm8")]
-position = Vector2(-585, 0)
+position = Vector2(-600, 0)
 
 [node name="Room1 (Dining Hall)" type="Node2D" parent="."]
 position = Vector2(-1455, -1071)
@@ -200,7 +201,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="UpDoor" parent="Room4 (Living Room)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_0keg8")]
-position = Vector2(-427, -302)
+position = Vector2(-310, -300)
 target_door = NodePath("../../Room0 (Main Hall)/DownDoor2")
 my_room = NodePath("..")
 
@@ -213,31 +214,22 @@ script = ExtResource("2_knwnv")
 music = ExtResource("16_gbvk8")
 
 [node name="Camera2D" type="Camera2D" parent="Room5 (Study)"]
-metadata/_edit_lock_ = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Room5 (Study)"]
-metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room5 (Study)" instance=ExtResource("5_wpasl")]
-metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Room5 (Study)"]
-metadata/_edit_lock_ = true
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("24_npv68")
 
 [node name="UpDoor" parent="Room5 (Study)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_0keg8")]
-position = Vector2(388, -299)
+position = Vector2(360, -300)
 target_door = NodePath("../../Room0 (Main Hall)/DownDoor")
 my_room = NodePath("..")
 
 [node name="NpcBlue" parent="Room5 (Study)" instance=ExtResource("14_74gup")]
 position = Vector2(-305, 56)
-
-[node name="Panel" type="Panel" parent="Room5 (Study)"]
-offset_left = 309.0
-offset_top = -371.0
-offset_right = 465.0
-offset_bottom = -218.0
-mouse_filter = 2
 
 [node name="Room6 (Green House)" type="Node2D" parent="."]
 position = Vector2(2880, -480)

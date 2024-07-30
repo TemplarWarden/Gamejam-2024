@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bvaelh2cyydxs"]
+
+[ext_resource type="Texture2D" uid="uid://1pindyvyfgm4" path="res://assets/npc/yellow/yellowspritesheet.png" id="1_6vfin"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv1hf"]
+atlas = ExtResource("1_6vfin")
+region = Rect2(0, 0, 200, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvpep"]
+atlas = ExtResource("1_6vfin")
+region = Rect2(200, 0, 200, 212)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv1hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvpep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]

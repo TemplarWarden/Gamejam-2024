@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_mayxv")
 position = Vector2(0, 100)
 
 [node name="Hover" type="Node2D" parent="."]
-position = Vector2(0, -86)
+position = Vector2(0, -180)
 
 [node name="Label" type="Label" parent="Hover"]
 offset_right = 5.0
