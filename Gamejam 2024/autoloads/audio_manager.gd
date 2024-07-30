@@ -15,10 +15,10 @@ enum MenuAudioID {CONFIRM, NAVIGATE, CANCEL, BUMP}
 	"menu": preload("res://audio/music/themedraft.wav"),
 	"overworld": preload("res://audio/music/overworld.wav"),
 	"trialtense": preload("res://audio/music/trialtense.wav"),
-	"culpritsting": preload("res://audio/music/culprit_decision_sting.wav"),
+	"culpritsting": preload("res://audio/sfx/culpritfound_rev1.wav"),
 	"goodend": preload("res://audio/music/goodend.wav"),
 	"badend": preload("res://audio/music/badend.wav"),
-	"corpse": preload("res://audio/sfx/bodydiscovered.wav")
+	"corpse": preload("res://audio/sfx/bodydiscovered_rev1.wav")
 }
 
 var mastervolume: float = -6

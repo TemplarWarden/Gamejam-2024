@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=32 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
 [ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
@@ -26,14 +26,22 @@
 [ext_resource type="AudioStream" uid="uid://dwl03lxjip6kx" path="res://audio/music/green.wav" id="17_i70cj"]
 [ext_resource type="PackedScene" uid="uid://dtyw0skcpr8bk" path="res://assets/npc/greycorpse/GreyCorpse.tscn" id="17_wk8yx"]
 [ext_resource type="PackedScene" uid="uid://b2333fxcvo71a" path="res://assets/door/Left Door/LeftDoor.tscn" id="18_mpkgt"]
+[ext_resource type="Texture2D" uid="uid://m6jsst6k0yaf" path="res://assets/sprites/tv.png" id="23_apec1"]
 [ext_resource type="Texture2D" uid="uid://d0cg3ogyrfjik" path="res://assets/rooms/wizardstudyfloor1.png" id="24_npv68"]
+[ext_resource type="Texture2D" uid="uid://b5ekgsysmwyww" path="res://assets/sprites/beertable.png" id="24_obf7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk2g2"]
+size = Vector2(102, 97.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfmu4"]
+size = Vector2(108.667, 66.6666)
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_1lyiy")]
 unique_name_in_owner = true
 position = Vector2(-426, -61)
-movement_speed = 200.0
+movement_speed = 300.0
 
 [node name="Room0 (Main Hall)" type="Node2D" parent="."]
 script = ExtResource("2_knwnv")
@@ -109,7 +117,7 @@ target_door = NodePath("../../Room0 (Main Hall)/UpDoor")
 my_room = NodePath("..")
 
 [node name="NpcYellow" parent="Room1 (Dining Hall)" instance=ExtResource("12_tslcf")]
-position = Vector2(222, 49)
+position = Vector2(91, -244)
 
 [node name="Room2 (Bedroom)" type="Node2D" parent="."]
 position = Vector2(720, -960)
@@ -205,9 +213,33 @@ metadata/_edit_lock_ = true
 position = Vector2(-310, -300)
 target_door = NodePath("../../Room0 (Main Hall)/DownDoor2")
 my_room = NodePath("..")
+metadata/_edit_lock_ = true
 
 [node name="NpcOrange" parent="Room4 (Living Room)" instance=ExtResource("15_xy0o7")]
-position = Vector2(339, 34)
+position = Vector2(115, -25)
+metadata/_edit_lock_ = true
+
+[node name="TB" type="Sprite2D" parent="Room4 (Living Room)"]
+position = Vector2(150, 101)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_apec1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room4 (Living Room)/TB"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4 (Living Room)/TB/StaticBody2D"]
+position = Vector2(1, 16)
+shape = SubResource("RectangleShape2D_nk2g2")
+
+[node name="BeerTable" type="Sprite2D" parent="Room4 (Living Room)"]
+position = Vector2(-288, 18)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("24_obf7f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room4 (Living Room)/BeerTable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4 (Living Room)/BeerTable/StaticBody2D"]
+position = Vector2(2.33334, 24.6667)
+shape = SubResource("RectangleShape2D_mfmu4")
 
 [node name="Room5 (Study)" type="Node2D" parent="."]
 position = Vector2(-720, 960)

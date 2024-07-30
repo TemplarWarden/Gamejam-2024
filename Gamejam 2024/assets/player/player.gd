@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var movement_speed:float = 200.0
+@export var movement_speed:float
 var target_move: Vector2
 var target_object: Clickable
 var area_object: Interactable
