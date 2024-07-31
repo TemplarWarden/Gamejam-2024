@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dkxicyaoc2eha"]
+[gd_scene load_steps=44 format=3 uid="uid://dkxicyaoc2eha"]
 
 [ext_resource type="PackedScene" uid="uid://b8hog8xcmrsqs" path="res://assets/player/player.tscn" id="1_1lyiy"]
 [ext_resource type="Script" path="res://assets/components/roomhandler.gd" id="2_knwnv"]
@@ -20,16 +20,37 @@
 [ext_resource type="PackedScene" uid="uid://b2rqxpxm3u3ox" path="res://assets/npc/green/NPCGreen.tscn" id="13_irp87"]
 [ext_resource type="AudioStream" uid="uid://dov5sdcjaeax8" path="res://audio/music/mrpurple.wav" id="13_mxhtb"]
 [ext_resource type="PackedScene" uid="uid://ff0ap54malam" path="res://assets/npc/blue/NPCBlue.tscn" id="14_74gup"]
+[ext_resource type="Texture2D" uid="uid://by7n2m56meltn" path="res://assets/sprites/diningtable.png" id="14_ocixi"]
 [ext_resource type="PackedScene" uid="uid://bvpglm4het5et" path="res://assets/npc/orange/NPCOrange.tscn" id="15_xy0o7"]
+[ext_resource type="Texture2D" uid="uid://tarsoc02y33c" path="res://assets/sprites/chair1.png" id="15_ymqrv"]
 [ext_resource type="AudioStream" uid="uid://b1pq1wttiunbs" path="res://audio/music/bluetheme.wav" id="16_gbvk8"]
 [ext_resource type="PackedScene" uid="uid://dyjx3yg72epow" path="res://assets/npc/purple/NPCPurple.tscn" id="16_htvjh"]
+[ext_resource type="Texture2D" uid="uid://bs707o8qx2ffy" path="res://assets/sprites/chair2.png" id="16_y888o"]
 [ext_resource type="AudioStream" uid="uid://dwl03lxjip6kx" path="res://audio/music/green.wav" id="17_i70cj"]
+[ext_resource type="Texture2D" uid="uid://0uqw7q81uoq7" path="res://assets/sprites/chair3.png" id="17_laosm"]
 [ext_resource type="PackedScene" uid="uid://dtyw0skcpr8bk" path="res://assets/npc/greycorpse/GreyCorpse.tscn" id="17_wk8yx"]
+[ext_resource type="Texture2D" uid="uid://hago4kdb57et" path="res://assets/sprites/chair4.png" id="18_0b78b"]
 [ext_resource type="Texture2D" uid="uid://capm0vrhvjlf3" path="res://assets/rooms/bathroombackground2.png" id="18_dn04h"]
 [ext_resource type="PackedScene" uid="uid://b2333fxcvo71a" path="res://assets/door/Left Door/LeftDoor.tscn" id="18_mpkgt"]
 [ext_resource type="Texture2D" uid="uid://m6jsst6k0yaf" path="res://assets/sprites/tv.png" id="23_apec1"]
 [ext_resource type="Texture2D" uid="uid://d0cg3ogyrfjik" path="res://assets/rooms/wizardstudyfloor1.png" id="24_npv68"]
 [ext_resource type="Texture2D" uid="uid://b5ekgsysmwyww" path="res://assets/sprites/beertable.png" id="24_obf7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exbq5"]
+size = Vector2(44.6666, 66)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ullsy"]
+radius = 83.3334
+height = 549.333
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plwcw"]
+size = Vector2(67.3333, 78.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlfwr"]
+size = Vector2(69.3333, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28vu8"]
+size = Vector2(54.6667, 48.6666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3kw"]
 size = Vector2(114, 152)
@@ -108,20 +129,95 @@ metadata/_edit_lock_ = true
 [node name="AudioListener2D" type="AudioListener2D" parent="Room1 (Dining Hall)"]
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Room1 (Dining Hall)"]
+[node name="Background" type="Sprite2D" parent="Room1 (Dining Hall)"]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_8vsyo")
+metadata/_edit_lock_ = true
 
 [node name="Walls" parent="Room1 (Dining Hall)" instance=ExtResource("5_wpasl")]
 metadata/_edit_lock_ = true
 
 [node name="DownDoor3" parent="Room1 (Dining Hall)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("8_g8q2v")]
-position = Vector2(461, 337)
+position = Vector2(240, 340)
 target_door = NodePath("../../Room0 (Main Hall)/UpDoor")
 my_room = NodePath("..")
 
 [node name="NpcYellow" parent="Room1 (Dining Hall)" instance=ExtResource("12_tslcf")]
-position = Vector2(91, -244)
+position = Vector2(113, -277)
+
+[node name="Chair2" type="Sprite2D" parent="Room1 (Dining Hall)"]
+position = Vector2(293, -98)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_y888o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room1 (Dining Hall)/Chair2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1 (Dining Hall)/Chair2/StaticBody2D"]
+position = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_exbq5")
+
+[node name="Table" type="Sprite2D" parent="Room1 (Dining Hall)"]
+position = Vector2(-46, 38)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_ocixi")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room1 (Dining Hall)/Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1 (Dining Hall)/Table/StaticBody2D"]
+position = Vector2(0, -2.00012)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ullsy")
+
+[node name="Chair1" type="Sprite2D" parent="Room1 (Dining Hall)"]
+position = Vector2(-523, -86)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ymqrv")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room1 (Dining Hall)/Chair1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1 (Dining Hall)/Chair1/StaticBody2D"]
+position = Vector2(5.66663, 9.33337)
+shape = SubResource("RectangleShape2D_plwcw")
+
+[node name="Chair3" type="Sprite2D" parent="Room1 (Dining Hall)"]
+position = Vector2(303, 107)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_laosm")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room1 (Dining Hall)/Chair3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1 (Dining Hall)/Chair3/StaticBody2D"]
+position = Vector2(-2, 2.33331)
+shape = SubResource("RectangleShape2D_nlfwr")
+
+[node name="Chair4" type="Sprite2D" parent="Room1 (Dining Hall)"]
+position = Vector2(495, -253)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_0b78b")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room1 (Dining Hall)/Chair4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1 (Dining Hall)/Chair4/StaticBody2D"]
+position = Vector2(-13.3334, 19)
+shape = SubResource("RectangleShape2D_28vu8")
+
+[node name="Chair5" type="Sprite2D" parent="Room1 (Dining Hall)"]
+position = Vector2(-362, -193)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_0b78b")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room1 (Dining Hall)/Chair5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1 (Dining Hall)/Chair5/StaticBody2D"]
+position = Vector2(-13.3334, 19)
+shape = SubResource("RectangleShape2D_28vu8")
 
 [node name="Room2 (Bedroom)" type="Node2D" parent="."]
 position = Vector2(720, -960)
@@ -257,11 +353,11 @@ music = ExtResource("16_gbvk8")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Room5 (Study)"]
 
-[node name="Walls" parent="Room5 (Study)" instance=ExtResource("5_wpasl")]
-
 [node name="Background" type="Sprite2D" parent="Room5 (Study)"]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("24_npv68")
+
+[node name="Walls" parent="Room5 (Study)" instance=ExtResource("5_wpasl")]
 
 [node name="UpDoor" parent="Room5 (Study)" node_paths=PackedStringArray("target_door", "my_room") instance=ExtResource("9_0keg8")]
 position = Vector2(360, -300)

@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ccy38fy47wo8q"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://ccy38fy47wo8q"]
 
 [ext_resource type="Texture2D" uid="uid://dk5wxlhg6o8dn" path="res://assets/player/detectiveidlesprite.png" id="1_0481y"]
+[ext_resource type="Texture2D" uid="uid://is8t26lo5omu" path="res://assets/player/walkinganim.png" id="2_qunxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_euhwa"]
 atlas = ExtResource("1_0481y")
@@ -16,6 +17,22 @@ region = Rect2(304, 0, 152, 220)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmojh"]
 atlas = ExtResource("1_0481y")
+region = Rect2(456, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbw5l"]
+atlas = ExtResource("2_qunxh")
+region = Rect2(0, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nio1k"]
+atlas = ExtResource("2_qunxh")
+region = Rect2(152, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hed1e"]
+atlas = ExtResource("2_qunxh")
+region = Rect2(304, 0, 152, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfmvb"]
+atlas = ExtResource("2_qunxh")
 region = Rect2(456, 0, 152, 220)
 
 [resource]
@@ -35,5 +52,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbw5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nio1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hed1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfmvb")
+}],
+"loop": true,
+"name": &"walking",
 "speed": 2.0
 }]

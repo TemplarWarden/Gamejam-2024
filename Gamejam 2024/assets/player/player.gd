@@ -10,6 +10,7 @@ var has_interact_target:bool = false
 var has_interact_body:bool = false
 
 var can_move:bool = true
+var is_moving:bool = false
 
 @onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
 
@@ -18,32 +19,34 @@ func _ready():
 	target_move = position
 
 func _process(delta):
-	move(delta)
 	update_direction()
 
 #move to target location, if very close, stop movement (prevent jittering)
 func _physics_process(delta):
-	if position.distance_to(target_move) > 0:
-		velocity = position.direction_to((target_move)) * movement_speed
-		#play movement animations
+	velocity = position.direction_to((target_move)) * movement_speed
+	if position.distance_to(target_move) > movement_speed * delta:
 		move_and_slide()
-	if position.distance_to(target_move) < movement_speed*delta:
-		target_move = position
-
-#reads input to set movement but using iterative location based on input, interrupts all current movement
-func move(delta):
-	if can_move:
-		var movement = Input.get_vector("c_left", "c_right", "c_up", "c_down")
-		if movement.length() > 0:
-			target_move = position + movement*movement_speed * delta
-			has_interact_target = false
+		update_animation(true)
+	else:
+		move_to(position)
+		update_animation(false)
 
 #reads input to set movement to location
 func move_to(target_position):
 	target_move = target_position
 
+func update_animation(is_walking: bool = false) -> void:
+	if is_walking:
+		sprite.play("walking")
+	else:
+		sprite.play("default")
+		
+
 func _unhandled_input(event):
 	#moveto location
+	if event.is_action("c_left") || event.is_action("c_right") || event.is_action("c_up") || event.is_action("c_down"):
+		var movement = Input.get_vector("c_left", "c_right", "c_up", "c_down")
+		move_to(position + movement * movement_speed)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		move_to(get_global_mouse_position())
 		has_interact_target = false
