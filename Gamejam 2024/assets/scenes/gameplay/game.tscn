@@ -386,6 +386,18 @@ shape = SubResource("RectangleShape2D_ak3kw")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room3 (Transition Hall)/Walls2/StaticBody2D"]
 polygon = PackedVector2Array(-144, 191, -95, 191, -94, 98, 529, 95, 530, 350, 580, 350, 580, -93, -144, -93)
 
+[node name="Sprite2D" type="Sprite2D" parent="Room3 (Transition Hall)"]
+position = Vector2(-475, -290)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_fo2cj")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room3 (Transition Hall)/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3 (Transition Hall)/Sprite2D/StaticBody2D"]
+position = Vector2(0, 33.333)
+shape = SubResource("RectangleShape2D_u2tq8")
+
 [node name="Room4 (Living Room)" type="Node2D" parent="."]
 position = Vector2(720, 960)
 script = ExtResource("2_knwnv")
@@ -611,7 +623,7 @@ position = Vector2(-0.333374, -0.333328)
 shape = SubResource("RectangleShape2D_lh1td")
 
 [node name="statue" type="Sprite2D" parent="Room6 (Green House)"]
-position = Vector2(413, -280)
+position = Vector2(462, -231)
 rotation = -1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_fa6fp")
