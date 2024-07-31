@@ -11,8 +11,10 @@ script = ExtResource("1_wtlio")
 [node name="Pause" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 160.0
+offset_bottom = 160.0
 metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="Pause"]
@@ -40,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_l6xhb")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 1
