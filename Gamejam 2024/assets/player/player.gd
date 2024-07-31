@@ -24,6 +24,7 @@ func _process(delta):
 #move to target location, if very close, stop movement (prevent jittering)
 func _physics_process(delta):
 	velocity = position.direction_to((target_move)) * movement_speed
+	print_debug(velocity.length())
 	if position.distance_to(target_move) > movement_speed * delta:
 		move_and_slide()
 		update_animation(true)

@@ -33,7 +33,7 @@ var blue_dict: Dictionary = {
 }
 var green_dict: Dictionary = {
 	DICVALUES.ID: "green",
-	DICVALUES.PORTRAIT: "res://Graphics (Placeholder)/placeholder portrait.png",
+	DICVALUES.PORTRAIT: "res://assets/npc/green/greenportrait1.png",
 	DICVALUES.TEXTCOLOR: Color.GREEN,
 	DICVALUES.TYPESOUND: "res://assets/npc/green/greendialogue.wav",
 	DICVALUES.TYPESPEED: 0.08,

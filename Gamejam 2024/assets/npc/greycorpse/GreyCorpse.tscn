@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_nxfsc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NPC/StaticBody2D"]
 position = Vector2(2, 2)
-polygon = PackedVector2Array(-258, 125, -200, -155, 0, -119, 209, -160, 255, 1, -133, -9, -152, 126)
+polygon = PackedVector2Array(-258, 125, -200, -149, 0, -119, 203, -145, 255, 1, -133, -9, -152, 126)
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC"]
 scale = Vector2(1.5, 1.5)

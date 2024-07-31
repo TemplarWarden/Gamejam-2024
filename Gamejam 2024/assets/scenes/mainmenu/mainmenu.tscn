@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccs5rmbyf7jwv"]
+[gd_scene load_steps=8 format=3 uid="uid://ccs5rmbyf7jwv"]
 
+[ext_resource type="Texture2D" uid="uid://ba77ilkkxs1mj" path="res://assets/rooms/livingroomfloor1.png" id="1_0o5pc"]
 [ext_resource type="Script" path="res://assets/scenes/mainmenu/main_menu.gd" id="1_5pbdv"]
 [ext_resource type="Theme" uid="uid://cw1l2t36qm1h4" path="res://assets/font/font_theme.tres" id="2_1ealf"]
 [ext_resource type="FontFile" uid="uid://ds6trkkj4lw5e" path="res://assets/font/alkhemikal/Alkhemikal.ttf" id="2_5byfl"]
+[ext_resource type="Texture2D" uid="uid://m6jsst6k0yaf" path="res://assets/sprites/tv.png" id="2_h1a7b"]
+[ext_resource type="SpriteFrames" uid="uid://ccy38fy47wo8q" path="res://assets/player/player.tres" id="5_hx6xj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f1r6q"]
 font_size = 68
@@ -10,6 +13,24 @@ font_size = 68
 [node name="MainMenuLayer" type="CanvasLayer"]
 process_mode = 3
 layer = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -240.0
+offset_right = -320.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_0o5pc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(989, 647)
+scale = Vector2(2, 2)
+texture = ExtResource("2_h1a7b")
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -89,6 +110,12 @@ focus_next = NodePath("../ContinueButton")
 focus_previous = NodePath("../ContinueButton")
 theme = ExtResource("2_1ealf")
 text = "QUIT"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 480)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_hx6xj")
+autoplay = "default"
 
 [connection signal="focus_exited" from="Menu/MarginContainer/VBoxContainer/ContinueButton" to="Menu" method="_button_exited"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ContinueButton" to="Menu" method="_on_continue_button_pressed"]
